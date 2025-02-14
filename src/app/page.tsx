@@ -1,7 +1,43 @@
-export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <h1>Manon Ruivo | Barras</h1>
-    </div>
-  );
+// src/app/page.tsx
+import { redirect } from 'next/navigation';
+import { headers } from 'next/headers';
+
+function parseAcceptLanguage(
+  acceptLanguage: string
+): string {
+  const languages = acceptLanguage
+    .split(',')
+    .map(lang => {
+      const [code, qValue] = lang.split(';q=');
+      return {
+        code: code.trim(),
+        q: qValue ? parseFloat(qValue) : 1.0,
+      };
+    })
+    .sort((a, b) => b.q - a.q);
+  return languages[0]?.code || '';
+}
+
+export default async function RootPage() {
+  const requestHeaders = await headers();
+  const acceptLanguage =
+    requestHeaders.get('accept-language') || '';
+  console.log('acceptLanguage page', acceptLanguage);
+
+  const preferred = parseAcceptLanguage(acceptLanguage);
+  console.log('Preferred language:', preferred);
+
+  let locale: 'en' | 'pt' | 'es' = 'en';
+  const lowerPref = preferred.toLowerCase();
+
+  if (lowerPref.includes('pt')) {
+    locale = 'pt';
+  } else if (lowerPref.includes('es')) {
+    locale = 'es';
+  } else if (lowerPref.includes('en')) {
+    locale = 'en';
+  }
+
+  console.log('locale do page', locale);
+  redirect(`/${locale}`);
 }

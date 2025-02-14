@@ -1,35 +1,39 @@
-import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+// src/app/layout.tsx
 import './globals.css';
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
+import type { Metadata } from 'next';
+import { Merriweather, Work_Sans } from 'next/font/google';
 
 export const metadata: Metadata = {
-  title: 'Manon Ruivo | Barras',
-  description:
-    'Descubra o universo das Barras de Access com Manon Ruivo. Transforme sua vida com técnicas energéticas que promovem bem-estar, clareza mental e equilíbrio emocional.',
+  title: 'Manon Ruivo',
+  description: '',
 };
+
+const merriweather = Merriweather({
+  subsets: ['latin'],
+  weight: ['300', '400', '700'],
+  variable: '--font-merriweather',
+});
+
+const workSans = Work_Sans({
+  subsets: ['latin'],
+  weight: ['300', '400', '700'],
+  variable: '--font-work-sans',
+});
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+    <html
+      lang="pt-BR"
+      className={`${merriweather.variable} ${workSans.variable}`}
+    >
+      <head>
+        <title>Manon Ruivo</title>
+      </head>
+      <body>{children}</body>
     </html>
   );
 }
