@@ -33,8 +33,8 @@ export default function Checkbox({
             transition-all duration-300 ease
             hover:shadow-md
             relative
-            peer-checked:bg-red-500
-            peer-checked:border-red-500
+            peer-checked:bg-lilac-dark
+            peer-checked:border-lilac-dark
 
             /* Pseudo-elemento para o "tick" */
             after:content-['']
@@ -49,7 +49,7 @@ export default function Checkbox({
             after:h-[7px]
             after:border-r-[1.5px]
             after:border-b-[1.5px]
-            after:border-black
+            after:border-white
             peer-checked:after:scale-100
             peer-checked:after:transition-transform peer-checked:after:duration-300
           `}
