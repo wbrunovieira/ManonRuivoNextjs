@@ -34,14 +34,12 @@ export default function Nav() {
       es: 'ES',
     };
 
-  // Referências para animação GSAP
   const navRef = useRef<HTMLDivElement | null>(null);
   const menuItemsRef = useRef<(HTMLLIElement | null)[]>([]);
   const langButtonsRef = useRef<
     (HTMLButtonElement | null)[]
   >([]);
 
-  // Hook de animação GSAP
   useGSAP(() => {
     gsap.from(navRef.current, {
       opacity: 0,
@@ -83,12 +81,10 @@ export default function Nav() {
       ref={navRef}
       className="p-4 border-b border-lilac-light bg-backgroundWhite text-foregroundBlack flex justify-between items-center shadow-md"
     >
-      {/* Nome da profissional */}
       <div className="text-xl font-bold text-lilac-dark">
         Manon Ruivo
       </div>
 
-      {/* Links de navegação */}
       <ul className="flex gap-6 list-none p-0">
         {[
           {
@@ -127,8 +123,7 @@ export default function Nav() {
         ))}
       </ul>
 
-      {/* Seletor de Idioma */}
-      <div className="flex gap-4 items-center">
+      <div className="flex gap-4 items-center mr-4">
         {(['en', 'pt', 'es'] as const).map(
           (lang, index) => (
             <button
@@ -137,7 +132,7 @@ export default function Nav() {
                 if (el) langButtonsRef.current[index] = el;
               }}
               onClick={() => handleLanguageChange(lang)}
-              className={`flex items-center gap-2 px-3 py-1 rounded-md opacity-100 mr-4
+              className={`flex items-center gap-1 px-1 py-1 rounded-md opacity-100 
     ${
       selectedLocale === lang
         ? 'bg-green text-white'
@@ -152,7 +147,7 @@ export default function Nav() {
               <ReactCountryFlag
                 countryCode={countryMapping[lang]}
                 svg
-                className="text-xl"
+                className="text-lg "
                 title={
                   lang === 'en'
                     ? 'English'

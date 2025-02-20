@@ -5,5 +5,11 @@
     "contact": "Contato",
     "blog": "Blog"
 
+  },
+   "hero": {
+    "title": "Liberte o estresse e desbloqueie seu potencial com",
+    "access": "Access Bars®",
+    "description": "Sessões individuais, cursos e programas corporativos para melhorar foco, bem-estar e produtividade.",
+    "cta": "Agendar uma Sessão"
   }
 }

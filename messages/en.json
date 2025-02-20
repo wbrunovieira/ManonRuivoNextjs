@@ -4,5 +4,11 @@
     "about": "About",
     "contact": "Contact",
       "blog": "Blog"
+  },
+  "hero": {
+    "title": "Free yourself from stress and unlock your potential with",
+    "access": "Access Bars®",
+    "description": "Individual sessions, courses, and corporate programs to enhance focus, well-being, and productivity.",
+    "cta": "Schedule a Session"
   }
 }
