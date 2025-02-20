@@ -6,6 +6,8 @@ import {
 import type { Metadata } from 'next';
 import '../../app/globals.css';
 
+import { Raleway, Lato } from 'next/font/google';
+
 export const metadata: Metadata = {
   title: 'Manon Ruivo',
   description: '',
@@ -18,6 +20,18 @@ export async function generateStaticParams() {
     { locale: 'es' },
   ];
 }
+
+const raleway = Raleway({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  display: 'swap',
+});
+
+const lato = Lato({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  display: 'swap',
+});
 
 export default async function RootLocaleLayout(props: {
   children: React.ReactNode;
@@ -36,7 +50,10 @@ export default async function RootLocaleLayout(props: {
     messagesModule.default as AbstractIntlMessages;
 
   return (
-    <html lang={locale}>
+    <html
+      lang={locale}
+      className={`${lato.className} ${raleway.className}`}
+    >
       <body>
         <NextIntlClientProvider
           key={locale}

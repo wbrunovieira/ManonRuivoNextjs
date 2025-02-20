@@ -10,22 +10,27 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: {
-          DEFAULT: '#ffffff',
+        backgroundWhite: {
+          DEFAULT: '#F8F4FF',
         },
-        foreground: {
+        foregroundBlack: {
           DEFAULT: '#171717',
         },
         lilac: {
-          light: '#F3E8F7',
-          DEFAULT: '#B497BD',
-          dark: '#8C6C9E',
+          DEFAULT: '#9B8ACA',
+          light: '#D8C8E6',
+          dark: '#7A6AA5',
         },
         green: {
           light: '#E0F5EC',
-          DEFAULT: '#81B29A',
+          DEFAULT: '#6BAF92',
           dark: '#5A8B7C',
         },
+      },
+      fontFamily: {
+        sans: ['Lato', 'Arial', 'Helvetica', 'sans-serif'],
+
+        title: ['Raleway', 'sans-serif'],
       },
     },
   },
