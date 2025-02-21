@@ -6,7 +6,8 @@
       "blog": "Blog"
   },
    "hero": {
-    "title": "Libera el estrés y desbloquea tu potencial con",
+    "title1": "Libera el estrés y ",
+    "title2": "desbloquea tu potencial con",
     "access": "Access Bars®",
     "description": "Sesiones individuales, cursos y programas corporativos para mejorar el enfoque, el bienestar y la productividad.",
     "cta": "Agendar una Sesión"

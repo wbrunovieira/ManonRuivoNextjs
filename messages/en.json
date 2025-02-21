@@ -6,7 +6,8 @@
       "blog": "Blog"
   },
   "hero": {
-    "title": "Free yourself from stress and unlock your potential with",
+    "title1": "Free yourself from stress and ",
+    "title2": "unlock your potential with",
     "access": "Access Bars®",
     "description": "Individual sessions, courses, and corporate programs to enhance focus, well-being, and productivity.",
     "cta": "Schedule a Session"

@@ -29,27 +29,47 @@ export default function Hero() {
 
     // Animação do título principal com efeito de centralização e redução
     if (titleRef.current) {
-      const rect = titleRef.current.getBoundingClientRect();
-      const dx =
-        window.innerWidth / 2 -
-        (rect.left + rect.width / 2);
-      const dy =
-        window.innerHeight / 2 -
-        (rect.top + rect.height / 2);
+      if (window.innerWidth < 768) {
+        // Animação para mobile: animação das linhas sem SplitText
+        const lines =
+          titleRef.current.querySelectorAll('.line');
+        gsap.fromTo(
+          lines,
+          { scale: 2, opacity: 0 },
+          {
+            scale: 1,
+            opacity: 1,
+            duration: 1,
+            ease: 'power2.out',
+            stagger: 0.1,
+            delay: 0.5,
+          }
+        );
+      } else {
+        // Animação atual para desktop
+        const rect =
+          titleRef.current.getBoundingClientRect();
+        const dx =
+          window.innerWidth / 2 -
+          (rect.left + rect.width / 2);
+        const dy =
+          window.innerHeight / 2 -
+          (rect.top + rect.height / 2);
 
-      gsap.set(titleRef.current, {
-        scale: 3,
-        x: dx,
-        y: dy,
-      });
-      gsap.to(titleRef.current, {
-        scale: 1,
-        x: 0,
-        y: 0,
-        duration: 1,
-        ease: 'power2.out',
-        delay: 1, // Espera um pouco antes de reduzir o título
-      });
+        gsap.set(titleRef.current, {
+          scale: 2,
+          x: dx,
+          y: dy,
+        });
+        gsap.to(titleRef.current, {
+          scale: 1,
+          x: 0,
+          y: 0,
+          duration: 1,
+          ease: 'power2.out',
+          delay: 1,
+        });
+      }
     }
 
     // Animação do bloco com ícone e "Access Bars®"
@@ -111,9 +131,10 @@ export default function Hero() {
       <div className="max-w-lg">
         <h1
           ref={titleRef}
-          className="text-4xl md:text-3xl font-bold text-lilac"
+          className="text-xl md:text-3xl font-bold text-lilac"
         >
-          {t('title')}
+          <span className="line">{t('title1')}</span>
+          <span className="line">{t('title2')}</span>
         </h1>
         <div
           ref={iconTitleRef}
