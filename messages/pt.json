@@ -12,5 +12,19 @@
     "access": "Access Bars®",
     "description": "Sessões individuais, cursos e programas corporativos para melhorar foco, bem-estar e produtividade.",
     "cta": "Agendar uma Sessão"
+  },
+      "accessBar": {
+    "title": "O que é Access Bars?",
+    "description": {
+      "line1": "Access Bars é uma técnica sutil e relaxante que envolve o toque em 32 pontos energéticos na cabeça.",
+      "line2": "Cada ponto (ou 'bar') está ligado a aspectos da nossa vida — como criatividade, alegria, dinheiro, controle, dentre outros.",
+      "line3": "Ao ativar essas 'barras', é possível liberar bloqueios, crenças e tensões que nos impedem de viver de forma mais expansiva e equilibrada."
+    },
+    "benefits": {
+      "title": "Por que fazer uma sessão Access Bars?",
+      "item1": "Alívio de estresse e ansiedade, promovendo relaxamento profundo.",
+      "item2": "Mais clareza mental e equilíbrio emocional para enfrentar desafios diários.",
+      "item3": "Melhora da qualidade do sono e sensação de bem-estar prolongada."
+    }
   }
 }

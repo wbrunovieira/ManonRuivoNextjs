@@ -1,7 +1,6 @@
-// src/components/Hero.tsx
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { useTranslations } from 'next-intl';
@@ -10,7 +9,7 @@ import ImageSliderHero from './ImageSliderHero';
 
 export default function Hero() {
   const t = useTranslations('hero');
-
+  const [isMobile] = useState(false);
   const heroRef = useRef<HTMLDivElement | null>(null);
   const titleRef = useRef<HTMLHeadingElement | null>(null);
   const iconTitleRef = useRef<HTMLDivElement | null>(null);
@@ -28,11 +27,11 @@ export default function Hero() {
     });
 
     if (titleRef.current) {
-      if (window.innerWidth < 768) {
-        const lines =
-          titleRef.current.querySelectorAll('.line');
+      if (isMobile) {
+        const words =
+          titleRef.current.querySelectorAll('.word');
         gsap.fromTo(
-          lines,
+          words,
           { scale: 2, opacity: 0 },
           {
             scale: 1,
@@ -71,30 +70,17 @@ export default function Hero() {
 
     gsap.from(iconTitleRef.current, {
       opacity: 0,
-      y: 50,
+      y: 30,
       duration: 1,
-      delay: 2.2,
+      delay: 1,
       ease: 'power2.out',
-    });
-    gsap.to(iconTitleRef.current, {
-      scale: 1.1,
-      duration: 0.3,
-      delay: 3.2,
-      ease: 'power2.out',
-      onComplete: () => {
-        void gsap.to(iconTitleRef.current, {
-          scale: 1,
-          duration: 0.3,
-          ease: 'power2.out',
-        });
-      },
     });
 
     gsap.from(subtitleRef.current, {
       opacity: 0,
-      y: 50,
+      y: 20,
       duration: 1,
-      delay: 3.5,
+      delay: 1.5,
       ease: 'power2.out',
     });
 
@@ -102,7 +88,7 @@ export default function Hero() {
       opacity: 0,
       scale: 0.8,
       duration: 1,
-      delay: 3.7,
+      delay: 1.8,
       ease: 'back.out(1.7)',
     });
 
@@ -110,50 +96,59 @@ export default function Hero() {
       opacity: 0,
       x: 50,
       duration: 1,
-      delay: 3.9,
+      delay: 2,
       ease: 'power2.out',
+    });
+
+    gsap.to(heroRef.current, {
+      backgroundPosition: '200% center',
+      duration: 20,
+      repeat: -1,
+      ease: 'linear',
     });
   }, []);
 
   return (
     <section
       ref={heroRef}
-      className="bg-backgroundWhite text-foregroundBlack py-16 px-4 flex flex-col md:flex-row items-center justify-between"
+      className="relative py-20 px-6 flex flex-col md:flex-row items-center justify-between overflow-hidden bg-gradient-to-r from-lilac-dark via-lilac-light to-lilac-dark text-white bg-[length:400%_400%]"
     >
-      <div className="max-w-lg">
+      <div className="absolute inset-0" />
+
+      <div className="max-w-lg z-10">
         <h1
           ref={titleRef}
-          className="text-xl md:text-3xl font-bold text-lilac"
+          className="text-3xl md:text-5xl font-bold text-white"
         >
-          <span className="line">{t('title1')}</span>
-          <span className="line">{t('title2')}</span>
+          {t('title1')} <br /> {t('title2')}
         </h1>
+
         <div
           ref={iconTitleRef}
-          className="inline-flex items-center gap-2 bg-lilac-light p-2 rounded text-white mt-4"
+          className="inline-flex items-center gap-2 bg-white/20 p-2 rounded text-white mt-4"
         >
-          <MdAccessibility size={48} color="#9B8ACA" />
+          <MdAccessibility size={48} />
           <p className="text-4xl md:text-5xl font-bold">
             {t('access')}
           </p>
         </div>
+
         <p
           ref={subtitleRef}
-          className="mt-4 text-lg text-lilac"
+          className="mt-4 text-lg text-white/80"
         >
           {t('description')}
         </p>
+
         <button
           ref={ctaRef}
-          className="mt-8 px-6 py-3 bg-green hover:bg-green-dark text-white font-semibold rounded transition-colors duration-300"
+          className="z-10 mt-8 px-6 py-3 bg-green hover:bg-green/30 text-white font-semibold rounded transition-colors duration-300"
         >
           {t('cta')}
         </button>
       </div>
 
-      <div className="hidden md:block w-px h-64 bg-lilac-light mx-8" />
-
-      <div ref={imageRef} className="mt-8 md:mr-32 ">
+      <div ref={imageRef} className=" md:mr-4 z-10">
         <ImageSliderHero />
       </div>
     </section>

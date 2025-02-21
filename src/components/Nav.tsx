@@ -114,15 +114,14 @@ export default function Nav() {
   return (
     <nav
       ref={navRef}
-      className="relative p-4 border-b border-lilac-light bg-backgroundWhite text-foregroundBlack shadow-md"
+      className="fixed  top-0 left-0 w-full p-4 border-b border-lilac-light bg-backgroundWhite text-foregroundBlack shadow-md z-50"
     >
-      <div className="flex justify-between items-center">
+      <div className="flex container mx-auto justify-between items-center">
         <div className="text-xl font-bold text-lilac-dark">
           Manon Ruivo
         </div>
 
-        {/* Menu Desktop */}
-        <div className="hidden md:block">
+        <div className="hidden md:block z-50">
           <ul className="flex gap-6 list-none p-0">
             {menuItems.map((item, index) => (
               <li
@@ -141,8 +140,8 @@ export default function Nav() {
           </ul>
         </div>
 
-        <div className="flex items-center md:mr-4">
-          <div className="flex gap-4 items-center mr-4">
+        <div className="flex  md:mr-4">
+          <div className="flex ">
             {(['en', 'pt', 'es'] as const).map(
               (lang, index) => (
                 <button
@@ -152,7 +151,7 @@ export default function Nav() {
                       langButtonsRef.current[index] = el;
                   }}
                   onClick={() => handleLanguageChange(lang)}
-                  className={`flex items-center gap-1 px-1 py-1 rounded-md 
+                  className={`flex items-center gap-1  px-1 py-1 rounded-md 
                   ${
                     selectedLocale === lang
                       ? 'bg-green text-white'
@@ -183,7 +182,7 @@ export default function Nav() {
             )}
           </div>
 
-          <div className="md:hidden ml-8">
+          <div className="md:hidden ml-8 z-50">
             <MenuMobile
               onToggle={(checked: boolean) =>
                 setIsMobileMenuOpen(checked)
@@ -194,15 +193,15 @@ export default function Nav() {
       </div>
 
       {isMobileMenuOpen && (
-        <div className="absolute md:hidden top-full right-0 mt-2 bg-lilac-light p-8 rounded z-50">
+        <div className=" md:hidden top-full right-0 mt-2 p-8 rounded bg-lilac-dark z-50">
           <ul
             ref={mobileMenuRef}
-            className="flex flex-col gap-4 list-none p-0 text-right"
+            className="flex flex-col gap-4 list-none p-0 text-right bg-lilac-dark z-50"
           >
             {menuItems.map(item => (
               <li key={item.path}>
                 <Link href={`/${locale}/${item.path}`}>
-                  <span className="text-lg font-medium text-lilac-dark hover:text-lilac hover:scale-105 transitions duration-300">
+                  <span className="text-lg font-medium text-white hover:text-lilac hover:scale-105 transitions duration-300">
                     {item.label}
                   </span>
                 </Link>

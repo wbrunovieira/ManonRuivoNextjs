@@ -32,7 +32,7 @@ export default function ImageSliderHero() {
         <motion.img
           key={images[index]}
           src={images[index]}
-          alt="Hairstyle"
+          alt="Access Bars"
           className="w-full h-full object-cover absolute inset-0"
           initial={{ opacity: 0, scale: 1.55 }}
           animate={{ opacity: 1, scale: 1 }}

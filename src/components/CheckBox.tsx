@@ -16,7 +16,7 @@ export default function Checkbox({
 }: CheckboxProps) {
   return (
     <>
-      <label className="flex items-center relative cursor-pointer">
+      <label className="flex  relative cursor-pointer">
         <input
           type="checkbox"
           checked={checked}
