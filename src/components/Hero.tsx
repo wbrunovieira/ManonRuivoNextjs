@@ -6,6 +6,7 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { useTranslations } from 'next-intl';
 import { MdAccessibility } from 'react-icons/md';
+import ImageSliderHero from './ImageSliderHero';
 
 export default function Hero() {
   const t = useTranslations('hero');
@@ -20,17 +21,14 @@ export default function Hero() {
   const imageRef = useRef<HTMLDivElement | null>(null);
 
   useGSAP(() => {
-    // Animação do container geral
     gsap.from(heroRef.current, {
       opacity: 0,
       duration: 1,
       ease: 'power2.out',
     });
 
-    // Animação do título principal com efeito de centralização e redução
     if (titleRef.current) {
       if (window.innerWidth < 768) {
-        // Animação para mobile: animação das linhas sem SplitText
         const lines =
           titleRef.current.querySelectorAll('.line');
         gsap.fromTo(
@@ -46,7 +44,6 @@ export default function Hero() {
           }
         );
       } else {
-        // Animação atual para desktop
         const rect =
           titleRef.current.getBoundingClientRect();
         const dx =
@@ -72,7 +69,6 @@ export default function Hero() {
       }
     }
 
-    // Animação do bloco com ícone e "Access Bars®"
     gsap.from(iconTitleRef.current, {
       opacity: 0,
       y: 50,
@@ -94,7 +90,6 @@ export default function Hero() {
       },
     });
 
-    // Animação do subtítulo
     gsap.from(subtitleRef.current, {
       opacity: 0,
       y: 50,
@@ -103,7 +98,6 @@ export default function Hero() {
       ease: 'power2.out',
     });
 
-    // Animação do botão de CTA
     gsap.from(ctaRef.current, {
       opacity: 0,
       scale: 0.8,
@@ -112,7 +106,6 @@ export default function Hero() {
       ease: 'back.out(1.7)',
     });
 
-    // Animação da imagem/vídeo demonstrativo
     gsap.from(imageRef.current, {
       opacity: 0,
       x: 50,
@@ -127,7 +120,6 @@ export default function Hero() {
       ref={heroRef}
       className="bg-backgroundWhite text-foregroundBlack py-16 px-4 flex flex-col md:flex-row items-center justify-between"
     >
-      {/* Bloco de texto */}
       <div className="max-w-lg">
         <h1
           ref={titleRef}
@@ -145,7 +137,10 @@ export default function Hero() {
             {t('access')}
           </p>
         </div>
-        <p ref={subtitleRef} className="mt-4 text-lg">
+        <p
+          ref={subtitleRef}
+          className="mt-4 text-lg text-lilac"
+        >
           {t('description')}
         </p>
         <button
@@ -156,16 +151,10 @@ export default function Hero() {
         </button>
       </div>
 
-      {/* Linha divisória moderna (aparece apenas em telas md e maiores) */}
       <div className="hidden md:block w-px h-64 bg-lilac-light mx-8" />
 
-      {/* Imagem ou vídeo demonstrativo */}
-      <div ref={imageRef} className="mt-8 md:mt-0 md:ml-8">
-        <img
-          src="/images/access-bars-demo.jpg"
-          alt="Demonstração de Access Bars"
-          className="w-full max-w-md rounded shadow-lg"
-        />
+      <div ref={imageRef} className="mt-8 md:mr-32 ">
+        <ImageSliderHero />
       </div>
     </section>
   );
