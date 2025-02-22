@@ -148,7 +148,10 @@ export default function Hero() {
         </button>
       </div>
 
-      <div ref={imageRef} className=" md:mr-4 z-10">
+      <div
+        ref={imageRef}
+        className=" md:mr-4 z-10 mt-8 md:mt-0"
+      >
         <ImageSliderHero />
       </div>
     </section>

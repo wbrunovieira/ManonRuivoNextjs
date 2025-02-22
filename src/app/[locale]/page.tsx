@@ -3,6 +3,7 @@
 import AccessBar from '@/components/AccessBar';
 import Hero from '@/components/Hero';
 import Nav from '@/components/Nav';
+import AccessBarsStudy from '@/components/Study';
 
 export default function Index() {
   return (
@@ -10,6 +11,7 @@ export default function Index() {
       <Nav />
       <Hero />
       <AccessBar />
+      <AccessBarsStudy />
     </div>
   );
 }

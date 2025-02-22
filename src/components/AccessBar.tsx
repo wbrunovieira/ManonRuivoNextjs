@@ -12,13 +12,11 @@ import { useTranslations } from 'next-intl';
 export default function AccessBar() {
   const t = useTranslations('accessBar');
 
-  // Textos para o título e descrição
   const title = t('title');
   const descriptionLine1 = t('description.line1');
   const descriptionLine2 = t('description.line2');
   const descriptionLine3 = t('description.line3');
 
-  // Textos para a seção de benefícios
   const benefitsTitle = t('benefits.title');
   const benefit1 = t('benefits.item1');
   const benefit2 = t('benefits.item2');
@@ -30,7 +28,6 @@ export default function AccessBar() {
   const benefitsRef = useRef(null);
   const listItemsRef = useRef<HTMLElement[]>([]);
 
-  // Refs para elementos decorativos
   const circleRef1 = useRef(null);
   const circleRef2 = useRef(null);
   const lineRef = useRef(null);
@@ -81,7 +78,6 @@ export default function AccessBar() {
       stagger: 0.2,
     });
 
-    // Animações para elementos decorativos
     gsap.from(circleRef1.current, {
       scale: 0,
       opacity: 0,
@@ -115,9 +111,7 @@ export default function AccessBar() {
         text-center bg-gradient-to-r from-[#7A6AA5] to-[#9B8ACA]
       "
     >
-      {/* Elementos decorativos */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Círculos suaves */}
         <div
           ref={circleRef1}
           className="absolute top-10 left-10 w-20 h-40 bg-white opacity-20 rounded-full blur-xl"
@@ -131,10 +125,10 @@ export default function AccessBar() {
       <div className="relative z-10 max-w-4xl p-8">
         <h2
           ref={titleRef}
-          className="text-3xl md:text-5xl font-bold text-white flex items-center justify-center gap-2 mt-8 p-8"
+          className="text-2xl md:text-5xl font-bold text-white flex items-center justify-center gap-2 mt-8 p-8"
         >
           <MdAccessibility
-            className="text-white"
+            className="text-white "
             size={32}
           />
           {title}
@@ -151,7 +145,7 @@ export default function AccessBar() {
 
         <h3
           ref={benefitsRef}
-          className="text-2xl font-semibold mb-4 p-8 text-white flex items-center justify-center gap-2"
+          className="text-xl md:text-2xl font-semibold mb-4 p-8 text-white flex items-center justify-center gap-2"
         >
           <MdHealing className="text-white" size={32} />
           {benefitsTitle}
