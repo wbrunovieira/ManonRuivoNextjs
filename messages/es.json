@@ -60,5 +60,17 @@
       "item4": "Valoración del colaborador y reducción del ausentismo"
     },
     "button": "Implementar Access Bars en Mi Empresa"
+  },
+    "courseSection": {
+    "title": "Formación en Access Bars®",
+    "intro1": "Aprende a aplicar la técnica que ha estado transformando vidas en todo el mundo.",
+    "intro2": "Desarrolla las habilidades para realizar sesiones y ayudar a las personas a liberar bloqueos, creencias y tensiones, promoviendo bienestar y equilibrio.",
+    "bullets": {
+      "item1": "Certificación oficial reconocida",
+      "item2": "Soporte y seguimiento posterior al curso",
+      "item3": "Networking con otros practicantes",
+      "item4": "Metodología simple y práctica para cualquier persona"
+    },
+    "button": "Quiero Inscribirme"
   }
 }
