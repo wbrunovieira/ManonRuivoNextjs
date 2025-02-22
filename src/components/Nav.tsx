@@ -182,7 +182,7 @@ export default function Nav() {
             )}
           </div>
 
-          <div className="md:hidden ml-8 z-50">
+          <div className="md:hidden ml-12 z-50">
             <MenuMobile
               onToggle={(checked: boolean) =>
                 setIsMobileMenuOpen(checked)

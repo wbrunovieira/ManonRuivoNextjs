@@ -33,6 +33,23 @@
       "observations": "Estudos realizados com medições de EEG demonstraram mudanças significativas na atividade cerebral logo após uma sessão. Em mais de 16 anos de experiência, observou-se que regiões com atividade elevada retornam a níveis normais imediatamente após o procedimento — algo raramente visto em tão pouco tempo.",
       "conclusion": "Essa evidência reforça a eficácia do método para promover bem-estar e desbloquear seu potencial. Se você busca uma abordagem transformadora, o Access Bars pode ser a escolha ideal.",
       "button": "Veja o Estudo no YouTube"
-    }
+    },
+     "individualSection": {
+    "title": "Sessões Individuais",
+    "subtitle1": "(Para Quem Busca uma Transformação Real)",
+    "subtitle2": "Viva a experiência de uma sessão transformadora, realizada no conforto do seu endereço ou no espaço acolhedor da Manon Ruivo.",
+    "subtitle3": "Um passo rumo a mais bem-estar e equilíbrio.",
+    "introTitle": "Como Funciona?",
+    "introText1": "Em uma sessão individual de Access Bars®, toques suaves em 32 pontos energéticos da cabeça ajudam a liberar bloqueios, crenças e tensões acumuladas.",
+    "introText2": "Cada sessão dura em média 60 minutos, promovendo um alívio imediato do estresse e uma sensação profunda de bem-estar.",
+    "listTitle": "Para Superar…",
+    "listItems": {
+      "item1": "Ansiedade",
+      "item2": "Burnout",
+      "item3": "Insônia",
+      "item4": "Falta de clareza e equilíbrio mental"
+    },
+    "button": "Agendar Sessão Agora"
+  }
   
 }
