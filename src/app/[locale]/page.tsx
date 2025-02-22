@@ -1,6 +1,7 @@
 // src/app/[locale]/page.tsx
 
 import AccessBar from '@/components/AccessBar';
+import CorporateSection from '@/components/CorporateSection';
 import Hero from '@/components/Hero';
 import IndividualSection from '@/components/IndividualSection';
 import Nav from '@/components/Nav';
@@ -14,6 +15,7 @@ export default function Index() {
       <AccessBar />
       <AccessBarsStudy />
       <IndividualSection />
+      <CorporateSection />
     </div>
   );
 }

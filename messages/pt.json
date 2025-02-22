@@ -50,6 +50,17 @@
       "item4": "Falta de clareza e equilíbrio mental"
     },
     "button": "Agendar Sessão Agora"
+  },
+  "corporateSection": {
+    "title": "Atendimento Local nas Empresas",
+    "paragraph": "Leve os benefícios do Access Bars® diretamente para o seu ambiente corporativo. Promova bem-estar, foco e produtividade entre os colaboradores, reduzindo estresse e criando um clima organizacional mais leve e colaborativo.",
+    "list": {
+      "item1": "Redução de estresse e ansiedade no dia a dia de trabalho",
+      "item2": "Aumento de foco e produtividade em equipes",
+      "item3": "Melhoria no clima organizacional e engajamento",
+      "item4": "Valorização do colaborador e redução de absenteísmo"
+    },
+    "button": "Implementar Access Bars na Minha Empresa"
   }
   
 }

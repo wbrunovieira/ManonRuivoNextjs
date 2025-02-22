@@ -49,6 +49,17 @@
       "item4": "Lack of clarity and mental balance"
     },
     "button": "Schedule Session Now"
+  },
+    "corporateSection": {
+    "title": "On-Site Service in Companies",
+    "paragraph": "Bring the benefits of Access Bars® directly to your corporate environment. Promote well-being, focus, and productivity among employees, reducing stress and fostering a lighter, more collaborative organizational climate.",
+    "list": {
+      "item1": "Reduced stress and anxiety in daily work",
+      "item2": "Increased focus and productivity in teams",
+      "item3": "Improved organizational climate and engagement",
+      "item4": "Enhanced employee appreciation and reduced absenteeism"
+    },
+    "button": "Implement Access Bars in My Company"
   }
   
 }
