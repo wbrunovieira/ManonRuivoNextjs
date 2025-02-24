@@ -6,15 +6,13 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { MdSchool } from 'react-icons/md';
 import Image from 'next/image';
-import { useTranslations } from 'next-intl'; // <-- Import do Next-Intl
+import { useTranslations } from 'next-intl';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function CourseSection() {
-  // Hook de tradução
   const t = useTranslations('courseSection');
 
-  // Refs para animações
   const sectionRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const paragraphRef = useRef<HTMLParagraphElement>(null);
@@ -23,23 +21,20 @@ export default function CourseSection() {
   const ctaRef = useRef<HTMLAnchorElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
 
-  // Função para armazenar as refs dos itens de lista
   const addToBulletRefs = (el: HTMLLIElement | null) => {
     if (el && !bulletItemsRef.current.includes(el)) {
       bulletItemsRef.current.push(el);
     }
   };
 
-  // Hook do GSAP para inicializar animações quando o componente for montado
   useGSAP(() => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: 'top 80%', // Inicia quando 80% da tela atinge o topo do componente
+        start: 'top 80%',
       },
     });
 
-    // Animações em sequência
     tl.from(sectionRef.current, {
       opacity: 0,
       duration: 1,
@@ -113,12 +108,10 @@ export default function CourseSection() {
       ref={sectionRef}
       className="relative py-16 overflow-hidden mt-16"
     >
-      {/* Onda decorativa na lateral esquerda (vertical) */}
       <div className="absolute inset-0 w-1/2 bg-gradient-to-b from-[#7A6AA5] to-[#9B8ACA] -skew-x-12 -left-1/3 z-0" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-8">
         <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
-          {/* Coluna de texto */}
           <div className="flex-1 md:pr-8 ml-32">
             <h2
               ref={headingRef}
@@ -128,7 +121,7 @@ export default function CourseSection() {
                 size={32}
                 className="text-lilac-dark"
               />
-              {t('title')} {/* <- Título via i18n */}
+              {t('title')}
             </h2>
 
             <p
@@ -171,12 +164,10 @@ export default function CourseSection() {
             </a>
           </div>
 
-          {/* Coluna de imagem ou ilustração */}
           <div
             ref={imageRef}
             className="flex-1 flex justify-center items-center"
           >
-            {/* Substitua pela imagem ou ilustração real */}
             <div className="rounded-lg shadow-md flex items-center justify-center">
               <Image
                 src="/images/group-image.jpg"

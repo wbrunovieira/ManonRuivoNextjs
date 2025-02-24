@@ -10,10 +10,8 @@ import { useTranslations } from 'next-intl';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function CorporateSection() {
-  // Hook do Next-Intl para pegar as traduções
   const t = useTranslations('corporateSection');
 
-  // Refs para animações
   const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const paragraphRef = useRef<HTMLParagraphElement>(null);
@@ -21,7 +19,6 @@ export default function CorporateSection() {
   const listItemsRef = useRef<HTMLLIElement[]>([]);
   const ctaRef = useRef<HTMLAnchorElement>(null);
 
-  // Adiciona cada <li> em listItemsRef para animar em sequência
   const addToListRefs = (el: HTMLLIElement | null) => {
     if (el && !listItemsRef.current.includes(el)) {
       listItemsRef.current.push(el);
@@ -101,7 +98,6 @@ export default function CorporateSection() {
       ref={sectionRef}
       className="relative bg-gradient-to-r from-[#7A6AA5] to-[#9B8ACA] text-white py-12 px-6 overflow-hidden mt-16"
     >
-      {/* Onda decorativa superior */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] rotate-180">
         <svg
           className="relative block w-[calc(100%+1.3px)] h-[50px]"
@@ -131,7 +127,6 @@ export default function CorporateSection() {
         </svg>
       </div>
 
-      {/* Conteúdo principal */}
       <div className="relative max-w-5xl mx-auto flex flex-col items-center z-10 mt-16">
         <h2
           ref={titleRef}
@@ -148,7 +143,6 @@ export default function CorporateSection() {
           {t('paragraph')}
         </p>
 
-        {/* Lista de benefícios */}
         <ul
           ref={listRef}
           className="bg-white/90 text-lilac-dark rounded-lg shadow-lg p-6 md:p-8 w-full max-w-3xl space-y-4"
