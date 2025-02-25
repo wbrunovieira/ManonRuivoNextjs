@@ -3,6 +3,7 @@
 import AccessBar from '@/components/AccessBar';
 import CorporateSection from '@/components/CorporateSection';
 import CourseSection from '@/components/CourseSection';
+import Footer from '@/components/Footer';
 import Hero from '@/components/Hero';
 import IndividualSection from '@/components/IndividualSection';
 import Nav from '@/components/Nav';
@@ -18,6 +19,7 @@ export default function Index() {
       <IndividualSection />
       <CorporateSection />
       <CourseSection />
+      <Footer />
     </div>
   );
 }
