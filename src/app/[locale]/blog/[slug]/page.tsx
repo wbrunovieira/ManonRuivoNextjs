@@ -10,6 +10,7 @@ import type {
   Category,
   BlockContent,
 } from '@/types/sanity';
+import SavePostId from '@/components/SavePostId';
 
 export const dynamic = 'force-dynamic';
 
@@ -24,7 +25,6 @@ export default async function BlogDetailPage({
   params,
 }: BlogDetailPageProps) {
   const { locale, slug } = await params;
-
   const post: Post | null = await getPostBySlug(
     slug,
     locale
@@ -36,11 +36,12 @@ export default async function BlogDetailPage({
 
   const localizedTitle =
     post.title?.[locale] ?? 'Sem título';
-
   const dateStr = post.publishedAt
     ? new Intl.DateTimeFormat(
         locale === 'pt' ? 'pt-BR' : locale,
-        { timeZone: 'UTC' }
+        {
+          timeZone: 'UTC',
+        }
       ).format(new Date(post.publishedAt))
     : 'Data não disponível';
 
@@ -49,51 +50,60 @@ export default async function BlogDetailPage({
       return cat.title?.[locale] ?? 'Sem título';
     }
   );
-
   const blocks: BlockContent = post.body?.[locale] ?? [];
 
   return (
-    <div className="p-4">
-      <h1 className="text-3xl font-bold mb-4">
-        {localizedTitle}
-      </h1>
-
-      <div className="text-gray-600 mb-2">
-        {post.author && <span>by {post.author} </span>}
-        {' | '}
-        <span>{dateStr}</span>
-      </div>
-
-      {categories && categories.length > 0 && (
-        <p className="text-sm text-gray-500 mb-4">
-          Categorias: {categories.join(', ')}
-        </p>
-      )}
+    <article className="container mx-auto px-4 py-8">
+      <SavePostId postId={post._id} />
+      <header className="mb-8">
+        <h1 className="text-4xl font-bold text-gray-900 mb-4">
+          {localizedTitle}
+        </h1>
+        <div className="flex flex-wrap items-center text-sm text-gray-600 mb-2">
+          {post.author && (
+            <span className="mr-2">by {post.author}</span>
+          )}
+          <span className="mr-2">|</span>
+          <time dateTime={post.publishedAt || ''}>
+            {dateStr}
+          </time>
+        </div>
+        {categories && categories.length > 0 && (
+          <p className="text-sm text-gray-500">
+            Categorias: {categories.join(', ')}
+          </p>
+        )}
+      </header>
 
       {post.mainImage?.asset?.url && (
-        <div className="mb-4">
+        <figure className="mb-8">
           <Image
             src={post.mainImage.asset.url}
             alt={post.mainImage.alt || localizedTitle}
-            width={800}
-            height={500}
-            className="object-cover w-full h-auto"
+            width={300}
+            height={300}
+            className="object-cover w-full h-auto rounded-lg"
           />
-        </div>
+          {post.mainImage.alt && (
+            <figcaption className="text-center text-xs text-gray-500 mt-2">
+              {post.mainImage.alt}
+            </figcaption>
+          )}
+        </figure>
       )}
 
-      <div className="prose max-w-none">
-        <article>
-          <PortableText value={blocks} />
-        </article>
-      </div>
+      <section className="prose max-w-none mb-8">
+        <PortableText value={blocks} />
+      </section>
 
-      <Link
-        href={`/${locale}/blog`}
-        className="text-blue-500"
-      >
-        &larr; Voltar para o Blog
-      </Link>
-    </div>
+      <footer>
+        <Link
+          href={`/${locale}/blog`}
+          className="text-blue-600 hover:underline"
+        >
+          &larr; Voltar para o Blog
+        </Link>
+      </footer>
+    </article>
   );
 }

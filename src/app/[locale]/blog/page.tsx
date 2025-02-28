@@ -1,3 +1,4 @@
+// app/[locale]/blog/page.tsx
 import { getPosts } from '@/sanity/lib/client';
 import Link from 'next/link';
 import Image from 'next/image';

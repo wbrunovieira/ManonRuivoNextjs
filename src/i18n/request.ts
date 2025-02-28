@@ -18,9 +18,38 @@ function parseAcceptLanguage(
   return languages[0]?.code || '';
 }
 
+function isValidLocale(
+  lang: string
+): lang is 'en' | 'pt' | 'es' {
+  return ['en', 'pt', 'es'].includes(lang);
+}
+
 export default getRequestConfig(
   async ({ requestLocale }) => {
     let locale = await requestLocale;
+
+    // Se o locale não foi definido, tenta extrair da URL usando o header 'referer'
+    if (!locale) {
+      const referer = (await headers()).get('referer');
+      if (referer) {
+        try {
+          const url = new URL(referer);
+          const segments = url.pathname.split('/');
+          if (
+            segments.length > 1 &&
+            isValidLocale(segments[1])
+          ) {
+            locale = segments[1];
+          }
+        } catch (err) {
+          console.error(
+            'Erro ao extrair locale da URL:',
+            err
+          );
+        }
+      }
+    }
+
     console.log(
       'locale do request antes do tratamento:',
       locale

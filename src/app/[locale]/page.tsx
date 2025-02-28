@@ -3,7 +3,7 @@
 import AccessBar from '@/components/AccessBar';
 import CorporateSection from '@/components/CorporateSection';
 import CourseSection from '@/components/CourseSection';
-import Footer from '@/components/Footer';
+
 import Hero from '@/components/Hero';
 import IndividualSection from '@/components/IndividualSection';
 

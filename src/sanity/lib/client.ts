@@ -109,3 +109,46 @@ export async function getPostBySlug(
     return null;
   }
 }
+
+export async function getPostById(
+  id: string
+): Promise<Post | null> {
+  const query = `*[_type == "post" && _id == $id][0]{
+    _id,
+    title,
+    "slug": {
+      "pt": slug.pt.current,
+      "en": slug.en.current,
+      "es": slug.es.current
+    },
+    body,
+    mainImage {
+      asset->{
+        _id,
+        url
+      },
+      alt
+    },
+    "author": author->name,
+    categories[]->{
+      _id,
+      title,
+      "slug": {
+        "pt": slug.pt.current,
+        "en": slug.en.current,
+        "es": slug.es.current
+      },
+      description
+    },
+    publishedAt
+  }`;
+
+  try {
+    const post = await client.fetch<Post>(query, { id });
+    console.log('getPosbyId', post);
+    return post || null;
+  } catch (error) {
+    console.error('Erro ao buscar o post por id:', error);
+    return null;
+  }
+}

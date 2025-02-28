@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
 import React, { useState, useRef, useEffect } from 'react';
 import ReactCountryFlag from 'react-country-flag';
@@ -9,11 +9,36 @@ import Checkbox from './CheckBox';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import MenuMobile from './MenuMobile';
+import { getPostById } from '@/sanity/lib/client';
+import { useCurrentPost } from '@/context/CurrentPostContext';
 
 export default function Nav() {
+  const { currentPostId: contextPostId } = useCurrentPost();
+  const [currentPostId, setCurrentPostId] = useState<
+    string | undefined
+  >(contextPostId);
+
+  // Tenta ler o valor do sessionStorage se o context não tiver o id
+  useEffect(() => {
+    if (!currentPostId && typeof window !== 'undefined') {
+      const savedId =
+        window.sessionStorage.getItem('currentPostId');
+      if (savedId) {
+        setCurrentPostId(savedId);
+        console.log(
+          '[Nav] Recuperou currentPostId do sessionStorage:',
+          savedId
+        );
+      }
+    }
+  }, [currentPostId]);
+
+  console.log('[Nav] currentPostId used:', currentPostId);
+
   const t = useTranslations('Nav');
   const router = useRouter();
   const locale = useLocale();
+  const pathname = usePathname();
 
   const [selectedLocale, setSelectedLocale] = useState<
     'en' | 'pt' | 'es'
@@ -21,12 +46,82 @@ export default function Nav() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] =
     useState(false);
 
-  const handleLanguageChange = (
+  const handleLanguageChange = async (
     lang: 'en' | 'pt' | 'es'
   ) => {
     if (selectedLocale !== lang) {
       setSelectedLocale(lang);
-      router.push(`/${lang}`);
+      const segments = pathname.split('/');
+      console.log(
+        '[handleLanguageChange] pathname atual:',
+        pathname
+      );
+      console.log(
+        '[handleLanguageChange] segments iniciais:',
+        segments
+      );
+
+      // Verifica se é página de detalhe de blog
+      const isBlogDetail =
+        segments.includes('blog') && segments.length > 3;
+      console.log(
+        '[handleLanguageChange] É página de blog detail?',
+        isBlogDetail
+      );
+
+      if (isBlogDetail && currentPostId) {
+        console.log(
+          '[handleLanguageChange] currentPostId disponível. Consultando getPostById...'
+        );
+        const post = await getPostById(currentPostId);
+        console.log(
+          '[handleLanguageChange] Post retornado:',
+          post
+        );
+        if (post) {
+          // Obtenha o slug localizado para o idioma selecionado
+          const localizedSlug = post.slug?.[lang] || '';
+          console.log(
+            '[handleLanguageChange] localizedSlug para',
+            lang,
+            ':',
+            localizedSlug
+          );
+          segments[1] = lang;
+          // Assume que o slug está na posição imediatamente após "blog"
+          segments[segments.indexOf('blog') + 1] =
+            localizedSlug;
+          const newPath = segments.join('/');
+          console.log(
+            '[handleLanguageChange] Nova rota construída:',
+            newPath
+          );
+          router.push(newPath);
+          return;
+        } else {
+          console.error(
+            '[handleLanguageChange] Post não encontrado para o _id:',
+            currentPostId,
+            'no idioma',
+            lang
+          );
+        }
+      } else {
+        if (isBlogDetail) {
+          console.error(
+            '[handleLanguageChange] currentPostId está indefinido para página de blog detail.'
+          );
+        }
+      }
+
+      // Caso não seja página de detalhe ou currentPostId não esteja definido, altera apenas o locale
+      segments[1] = lang;
+      const newPath = segments.join('/') || `/${lang}`;
+      console.log(
+        '[handleLanguageChange] Nova rota para páginas não-detalhe:',
+        newPath
+      );
+      router.push(newPath);
     }
   };
 
@@ -114,13 +209,12 @@ export default function Nav() {
   return (
     <nav
       ref={navRef}
-      className="fixed  top-0 left-0 w-full p-4 border-b border-lilac-light bg-backgroundWhite text-foregroundBlack shadow-md z-50"
+      className="fixed top-0 left-0 w-full p-4 border-b border-lilac-light bg-backgroundWhite text-foregroundBlack shadow-md z-50"
     >
       <div className="flex container mx-auto justify-between items-center">
         <div className="text-xl font-bold text-lilac-dark">
           Manon Ruivo
         </div>
-
         <div className="hidden md:block z-50">
           <ul className="flex gap-6 list-none p-0">
             {menuItems.map((item, index) => (
@@ -139,9 +233,8 @@ export default function Nav() {
             ))}
           </ul>
         </div>
-
-        <div className="flex  md:mr-4">
-          <div className="flex ">
+        <div className="flex md:mr-4">
+          <div className="flex">
             {(['en', 'pt', 'es'] as const).map(
               (lang, index) => (
                 <button
@@ -151,13 +244,7 @@ export default function Nav() {
                       langButtonsRef.current[index] = el;
                   }}
                   onClick={() => handleLanguageChange(lang)}
-                  className={`flex items-center gap-1  px-1 py-1 rounded-md 
-                  ${
-                    selectedLocale === lang
-                      ? 'bg-green text-white'
-                      : 'bg-transparent text-foregroundBlack'
-                  }
-                  hover:bg-green-light transition-all duration-300`}
+                  className={`flex items-center gap-1 px-1 py-1 rounded-md ${selectedLocale === lang ? 'bg-green text-white' : 'bg-transparent text-foregroundBlack'} hover:bg-green-light transition-all duration-300`}
                 >
                   <Checkbox
                     checked={selectedLocale === lang}
@@ -173,15 +260,14 @@ export default function Nav() {
                       lang === 'en'
                         ? 'English'
                         : lang === 'pt'
-                        ? 'Português'
-                        : 'Español'
+                          ? 'Português'
+                          : 'Español'
                     }
                   />
                 </button>
               )
             )}
           </div>
-
           <div className="md:hidden ml-12 z-50">
             <MenuMobile
               onToggle={(checked: boolean) =>
@@ -191,9 +277,8 @@ export default function Nav() {
           </div>
         </div>
       </div>
-
       {isMobileMenuOpen && (
-        <div className=" md:hidden top-full right-0 mt-2 p-8 rounded bg-lilac-dark z-50">
+        <div className="md:hidden top-full right-0 mt-2 p-8 rounded bg-lilac-dark z-50">
           <ul
             ref={mobileMenuRef}
             className="flex flex-col gap-4 list-none p-0 text-right bg-lilac-dark z-50"
