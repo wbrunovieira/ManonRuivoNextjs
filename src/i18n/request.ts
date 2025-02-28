@@ -50,7 +50,11 @@ export default getRequestConfig(
       }
     }
 
-    if (locale !== 'en' && locale !== 'pt') {
+    if (
+      locale !== 'en' &&
+      locale !== 'pt' &&
+      locale !== 'es'
+    ) {
       locale = routing.defaultLocale;
     }
     console.log(
@@ -61,7 +65,9 @@ export default getRequestConfig(
     const messages = (
       await (locale === 'pt'
         ? import('../../messages/pt.json')
-        : import('../../messages/en.json'))
+        : locale === 'es'
+          ? import('../../messages/es.json')
+          : import('../../messages/en.json'))
     ).default;
 
     return {

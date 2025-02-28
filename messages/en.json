@@ -3,7 +3,7 @@
     "home": "Home",
     "about": "About",
     "contact": "Contact",
-      "blog": "Blog"
+    "blog": "Blog"
   },
   "hero": {
     "title1": "Free yourself from stress and ",
@@ -72,6 +72,12 @@
       "item4": "Simple, practical methodology for anyone"
     },
     "button": "I Want to Enroll"
+  },
+    "blog": {
+ "title": "Blog",
+    "subtitle1": "Unveiling the world of Access Bars",
+    "subtitle2": "Innovation and trends that connect ideas",
+    "cta": "Read more"
   }
   
 }

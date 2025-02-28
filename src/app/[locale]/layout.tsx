@@ -8,6 +8,8 @@ import '../../app/globals.css';
 
 import { Raleway, Lato } from 'next/font/google';
 import { normalizeLocale } from '@/lib/normalizelocale';
+import Nav from '@/components/Nav';
+import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
   title: 'Manon Ruivo',
@@ -61,7 +63,9 @@ export default async function RootLocaleLayout(props: {
           locale={locale}
           messages={messages}
         >
+          <Nav />
           {props.children}
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>

@@ -72,5 +72,11 @@
       "item4": "Metodología simple y práctica para cualquier persona"
     },
     "button": "Quiero Inscribirme"
+  },
+    "blog": {
+      "title": "Blog",
+    "subtitle1": "Desvelando el universo de Access Barras",
+    "subtitle2": "Innovación y tendencias que conectan ideas",
+    "cta": "Leer más"
   }
 }
