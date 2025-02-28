@@ -1,70 +1,99 @@
-import { getPosts } from '@/sanity/lib/client';
+// app/[locale]/blog/[slug]/page.tsx
 import { notFound } from 'next/navigation';
-import { PortableText } from '@portabletext/react';
 import Image from 'next/image';
-import type { PortableTextBlock } from '@portabletext/types';
+import Link from 'next/link';
+import { getPostBySlug } from '@/sanity/lib/client';
+import { PortableText } from 'next-sanity';
+import type {
+  Locale,
+  Post,
+  Category,
+  BlockContent,
+} from '@/types/sanity';
 
-// Força a renderização dinâmica da página
 export const dynamic = 'force-dynamic';
 
-type Post = {
-  _id: string;
-  title: string;
-  body: PortableTextBlock[];
-  slug: string;
-  mainImage: string;
-  author: string;
-  categories: { _id: string; title: string }[];
-  publishedAt: string;
-};
+interface BlogDetailPageProps {
+  params: Promise<{
+    locale: Locale;
+    slug: string;
+  }>;
+}
 
-// Remove the Props type and just use any for the component props
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default async function PostPage(props: any) {
-  // Acessa os parâmetros diretamente
-  const { locale, slug } = props.params;
-  console.log('Parâmetros da rota:', { locale, slug });
+export default async function BlogDetailPage({
+  params,
+}: BlogDetailPageProps) {
+  const { locale, slug } = await params;
 
-  const posts: Post[] = await getPosts();
-  console.log('Posts recebidos:', posts);
-
-  const post = posts.find(post => post.slug === slug);
-  console.log('Post encontrado:', post);
+  const post: Post | null = await getPostBySlug(
+    slug,
+    locale
+  );
 
   if (!post) {
     notFound();
   }
 
+  const localizedTitle =
+    post.title?.[locale] ?? 'Sem título';
+
+  const dateStr = post.publishedAt
+    ? new Intl.DateTimeFormat(
+        locale === 'pt' ? 'pt-BR' : locale,
+        { timeZone: 'UTC' }
+      ).format(new Date(post.publishedAt))
+    : 'Data não disponível';
+
+  const categories = post.categories?.map(
+    (cat: Category) => {
+      return cat.title?.[locale] ?? 'Sem título';
+    }
+  );
+
+  const blocks: BlockContent = post.body?.[locale] ?? [];
+
   return (
-    <div>
-      <h1>{post.title}</h1>
-      {post.mainImage && (
-        <Image
-          src={post.mainImage}
-          alt={post.title}
-          width={300}
-          height={300}
-          className="w-full h-48 object-cover mb-4"
-        />
-      )}
-      <p className="text-sm text-gray-600">
-        by {post.author}
-      </p>
-      <p className="text-sm text-gray-500">
-        {post.categories
-          .map(category => category.title)
-          .join(', ')}
-      </p>
-      <p className="text-sm text-gray-400">
-        {post.publishedAt
-          ? new Date(post.publishedAt).toLocaleDateString(
-              locale === 'pt' ? 'pt-BR' : locale
-            )
-          : 'Data não disponível'}
-      </p>
-      <div className="prose mt-6">
-        <PortableText value={post.body} />
+    <div className="p-4">
+      <h1 className="text-3xl font-bold mb-4">
+        {localizedTitle}
+      </h1>
+
+      <div className="text-gray-600 mb-2">
+        {post.author && <span>by {post.author} </span>}
+        {' | '}
+        <span>{dateStr}</span>
       </div>
+
+      {categories && categories.length > 0 && (
+        <p className="text-sm text-gray-500 mb-4">
+          Categorias: {categories.join(', ')}
+        </p>
+      )}
+
+      {post.mainImage?.asset?.url && (
+        <div className="mb-4">
+          <Image
+            src={post.mainImage.asset.url}
+            alt={post.mainImage.alt || localizedTitle}
+            width={800}
+            height={500}
+            className="object-cover w-full h-auto"
+          />
+        </div>
+      )}
+
+      <div className="prose max-w-none">
+        <article>
+          <PortableText value={blocks} />
+        </article>
+      </div>
+
+      <Link
+        href={`/${locale}/blog`}
+        className="text-blue-500"
+      >
+        &larr; Voltar para o Blog
+      </Link>
     </div>
   );
 }

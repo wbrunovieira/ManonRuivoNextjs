@@ -7,6 +7,7 @@ import type { Metadata } from 'next';
 import '../../app/globals.css';
 
 import { Raleway, Lato } from 'next/font/google';
+import { normalizeLocale } from '@/lib/normalizelocale';
 
 export const metadata: Metadata = {
   title: 'Manon Ruivo',
@@ -38,13 +39,13 @@ export default async function RootLocaleLayout(props: {
   params: Promise<{ locale: string }>;
 }) {
   const resolvedParams = await props.params;
-  const locale = resolvedParams.locale;
+  const locale = normalizeLocale(resolvedParams.locale);
 
   const messagesModule = await (locale === 'pt'
     ? import('../../../messages/pt.json')
     : locale === 'es'
-    ? import('../../../messages/es.json')
-    : import('../../../messages/en.json'));
+      ? import('../../../messages/es.json')
+      : import('../../../messages/en.json'));
 
   const messages: AbstractIntlMessages =
     messagesModule.default as AbstractIntlMessages;

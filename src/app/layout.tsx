@@ -27,7 +27,6 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang="pt-BR"
       className={`${merriweather.variable} ${workSans.variable}`}
     >
       <head>
