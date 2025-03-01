@@ -78,5 +78,13 @@
     "subtitle1": "Desvelando el universo de Access Barras",
     "subtitle2": "Innovación y tendencias que conectan ideas",
     "cta": "Leer más"
+  },
+   "blogDetail": {
+  "noTitle": "Sin título",
+  "noDate": "Fecha no disponible",
+  "noCategory": "Sin categoría",
+  "by": "por",
+  "categories": "Categorías",
+  "backToBlog": "Volver al Blog"
   }
 }

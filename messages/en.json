@@ -78,6 +78,14 @@
     "subtitle1": "Unveiling the world of Access Bars",
     "subtitle2": "Innovation and trends that connect ideas",
     "cta": "Read more"
+  },
+    "blogDetail": {
+  "noTitle": "No title",
+  "noDate": "Date not available",
+  "noCategory": "No category",
+  "by": "by",
+  "categories": "Categories",
+  "backToBlog": "Back to Blog"
   }
   
 }
