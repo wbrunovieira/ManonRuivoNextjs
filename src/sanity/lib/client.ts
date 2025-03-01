@@ -145,7 +145,7 @@ export async function getPostById(
 
   try {
     const post = await client.fetch<Post>(query, { id });
-    console.log('getPosbyId', post);
+    console.log('getPostbyId', post);
     return post || null;
   } catch (error) {
     console.error('Erro ao buscar o post por id:', error);

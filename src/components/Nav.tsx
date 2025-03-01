@@ -10,35 +10,25 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import MenuMobile from './MenuMobile';
 import { getPostById } from '@/sanity/lib/client';
-import { useCurrentPost } from '@/context/CurrentPostContext';
 
 export default function Nav() {
-  const { currentPostId: contextPostId } = useCurrentPost();
-  const [currentPostId, setCurrentPostId] = useState<
-    string | undefined
-  >(contextPostId);
-
-  // Tenta ler o valor do sessionStorage se o context não tiver o id
-  useEffect(() => {
-    if (!currentPostId && typeof window !== 'undefined') {
-      const savedId =
-        window.sessionStorage.getItem('currentPostId');
-      if (savedId) {
-        setCurrentPostId(savedId);
-        console.log(
-          '[Nav] Recuperou currentPostId do sessionStorage:',
-          savedId
-        );
-      }
-    }
-  }, [currentPostId]);
-
-  console.log('[Nav] currentPostId used:', currentPostId);
-
   const t = useTranslations('Nav');
   const router = useRouter();
   const locale = useLocale();
   const pathname = usePathname();
+
+  const [, setCurrentPostId] = useState<string | null>(
+    null
+  );
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const postId =
+        window.sessionStorage.getItem('currentPostId');
+      setCurrentPostId(postId);
+      console.log('postId recuperado:', postId);
+    }
+  }, []);
 
   const [selectedLocale, setSelectedLocale] = useState<
     'en' | 'pt' | 'es'
@@ -61,7 +51,6 @@ export default function Nav() {
         segments
       );
 
-      // Verifica se é página de detalhe de blog
       const isBlogDetail =
         segments.includes('blog') && segments.length > 3;
       console.log(
@@ -69,17 +58,18 @@ export default function Nav() {
         isBlogDetail
       );
 
-      if (isBlogDetail && currentPostId) {
+      const storedPostId =
+        window.sessionStorage.getItem('currentPostId');
+      if (isBlogDetail && storedPostId) {
         console.log(
-          '[handleLanguageChange] currentPostId disponível. Consultando getPostById...'
+          '[handleLanguageChange] storedPostId disponível. Consultando getPostById...'
         );
-        const post = await getPostById(currentPostId);
+        const post = await getPostById(storedPostId);
         console.log(
           '[handleLanguageChange] Post retornado:',
           post
         );
         if (post) {
-          // Obtenha o slug localizado para o idioma selecionado
           const localizedSlug = post.slug?.[lang] || '';
           console.log(
             '[handleLanguageChange] localizedSlug para',
@@ -88,7 +78,7 @@ export default function Nav() {
             localizedSlug
           );
           segments[1] = lang;
-          // Assume que o slug está na posição imediatamente após "blog"
+
           segments[segments.indexOf('blog') + 1] =
             localizedSlug;
           const newPath = segments.join('/');
@@ -101,20 +91,17 @@ export default function Nav() {
         } else {
           console.error(
             '[handleLanguageChange] Post não encontrado para o _id:',
-            currentPostId,
+            storedPostId,
             'no idioma',
             lang
           );
         }
-      } else {
-        if (isBlogDetail) {
-          console.error(
-            '[handleLanguageChange] currentPostId está indefinido para página de blog detail.'
-          );
-        }
+      } else if (isBlogDetail) {
+        console.error(
+          '[handleLanguageChange] storedPostId está indefinido para página de blog detail.'
+        );
       }
 
-      // Caso não seja página de detalhe ou currentPostId não esteja definido, altera apenas o locale
       segments[1] = lang;
       const newPath = segments.join('/') || `/${lang}`;
       console.log(
@@ -244,7 +231,11 @@ export default function Nav() {
                       langButtonsRef.current[index] = el;
                   }}
                   onClick={() => handleLanguageChange(lang)}
-                  className={`flex items-center gap-1 px-1 py-1 rounded-md ${selectedLocale === lang ? 'bg-green text-white' : 'bg-transparent text-foregroundBlack'} hover:bg-green-light transition-all duration-300`}
+                  className={`flex items-center gap-1 px-1 py-1 rounded-md ${
+                    selectedLocale === lang
+                      ? 'bg-green text-white'
+                      : 'bg-transparent text-foregroundBlack'
+                  } hover:bg-green-light transition-all duration-300`}
                 >
                   <Checkbox
                     checked={selectedLocale === lang}
