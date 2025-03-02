@@ -33,7 +33,6 @@ export default function CorporateSection() {
       },
     });
 
-    // Animações em sequência
     tl.from(sectionRef.current, {
       opacity: 0,
       y: 50,
@@ -173,17 +172,15 @@ export default function CorporateSection() {
           </li>
         </ul>
 
-        {/* Botão de CTA */}
         <a
           ref={ctaRef}
           href="#agendamento-corporativo"
-          className="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-full transition-transform text-lg shadow-lg mt-8"
+          className="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-full transition-transform text-lg shadow-lg mt-8 mb-8"
         >
           {t('button')}
         </a>
       </div>
 
-      {/* Onda decorativa inferior */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
         <svg
           className="relative block w-[calc(100%+1.3px)] h-[50px]"

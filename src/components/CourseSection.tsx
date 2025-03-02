@@ -108,18 +108,18 @@ export default function CourseSection() {
       ref={sectionRef}
       className="relative py-16 overflow-hidden mt-16"
     >
-      <div className="absolute inset-0 w-1/2 bg-gradient-to-b from-[#7A6AA5] to-[#9B8ACA] -skew-x-12 -left-1/3 z-0" />
+      <div className="absolute inset-0 w-1/3 md:w-1/2 bg-gradient-to-b from-lilac-dark to-lilac-light -skew-x-12 -left-1/3 z-0" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-8">
         <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
-          <div className="flex-1 md:pr-8 ml-32">
+          <div className="flex-1 md:pr-8 ml-32 md:ml-64">
             <h2
               ref={headingRef}
-              className="text-3xl md:text-4xl font-extrabold text-lilac-dark mb-4 flex items-center gap-2"
+              className="text-3xl md:text-4xl font-extrabold text-lilac-dark mb-4 flex items-center gap-2 "
             >
               <MdSchool
                 size={32}
-                className="text-lilac-dark"
+                className="text-lilac-light"
               />
               {t('title')}
             </h2>
