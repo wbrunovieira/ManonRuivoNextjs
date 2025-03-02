@@ -211,7 +211,10 @@ export default function Nav() {
                   if (el) menuItemsRef.current[index] = el;
                 }}
               >
-                <Link href={`/${locale}/${item.path}`}>
+                <Link
+                  href={`/${locale}/${item.path}`}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
                   <span className="text-lg font-medium hover:text-lilac-dark transition-colors duration-300">
                     {item.label}
                   </span>
@@ -261,6 +264,7 @@ export default function Nav() {
           </div>
           <div className="md:hidden ml-12 z-50">
             <MenuMobile
+              isOpen={isMobileMenuOpen}
               onToggle={(checked: boolean) =>
                 setIsMobileMenuOpen(checked)
               }
@@ -276,7 +280,10 @@ export default function Nav() {
           >
             {menuItems.map(item => (
               <li key={item.path}>
-                <Link href={`/${locale}/${item.path}`}>
+                <Link
+                  href={`/${locale}/${item.path}`}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
                   <span className="text-lg font-medium text-white hover:text-lilac hover:scale-105 transitions duration-300">
                     {item.label}
                   </span>

@@ -1,13 +1,13 @@
-'use client';
-
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 
 interface MenuMobileProps {
+  isOpen: boolean;
   onToggle?: (checked: boolean) => void;
 }
 
 const MenuMobile: React.FC<MenuMobileProps> = ({
+  isOpen,
   onToggle,
 }) => {
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -15,9 +15,8 @@ const MenuMobile: React.FC<MenuMobileProps> = ({
   const span2Ref = useRef<HTMLSpanElement | null>(null);
   const span3Ref = useRef<HTMLSpanElement | null>(null);
 
-  const handleChange = () => {
-    const checked = inputRef.current?.checked;
-    if (checked) {
+  useEffect(() => {
+    if (isOpen) {
       gsap.to(span1Ref.current, {
         top: '50%',
         translateY: '-50%',
@@ -60,6 +59,10 @@ const MenuMobile: React.FC<MenuMobileProps> = ({
         ease: 'power2.out',
       });
     }
+  }, [isOpen]);
+
+  const handleChange = () => {
+    const checked = inputRef.current?.checked;
     if (onToggle) {
       onToggle(!!checked);
     }
@@ -71,22 +74,20 @@ const MenuMobile: React.FC<MenuMobileProps> = ({
         ref={inputRef}
         type="checkbox"
         className="absolute opacity-0 w-0 h-0"
+        checked={isOpen}
         onChange={handleChange}
       />
-
       <div className="relative w-[1.3em] h-[1.3em]">
         <span
           ref={span1Ref}
           className="absolute left-0 w-[32px] h-[2px] bg-lilac-dark transition-all duration-300 ease-in-out"
           style={{ top: '10%' }}
         />
-
         <span
           ref={span2Ref}
           className="absolute left-0 w-[32px] h-[2px] bg-lilac-dark transition-all duration-300 ease-in-out"
           style={{ top: '50%' }}
         />
-
         <span
           ref={span3Ref}
           className="absolute left-0 w-[32px] h-[2px] bg-lilac-dark transition-all duration-300 ease-in-out"
