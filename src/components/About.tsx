@@ -98,7 +98,7 @@ export default function About() {
           className="relative w-48 h-48 rounded-full overflow-hidden shadow-2xl"
         >
           <Image
-            src="/images/manon.jpg"
+            src="/images/ManonAbout.jpeg"
             alt="Manon Ruivo"
             fill
             className="object-cover"

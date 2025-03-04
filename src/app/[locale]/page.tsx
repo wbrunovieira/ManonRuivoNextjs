@@ -2,6 +2,7 @@
 
 import About from '@/components/About';
 import AccessBar from '@/components/AccessBar';
+import Contact from '@/components/Contact';
 import CorporateSection from '@/components/CorporateSection';
 import CourseSection from '@/components/CourseSection';
 
@@ -22,6 +23,7 @@ export default function Index() {
       <CourseSection />
       <TestimonialSection />
       <About />
+      <Contact />
     </div>
   );
 }
