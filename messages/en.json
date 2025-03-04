@@ -86,6 +86,11 @@
   "by": "by",
   "categories": "Categories",
   "backToBlog": "Back to Blog"
+  },
+   "testimonial": {
+    "title": "Testimonial",
+    "subtitle": "Listen to the story of Tatiana Barros",
+    "lang": "en"
   }
   
 }

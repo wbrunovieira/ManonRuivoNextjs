@@ -88,6 +88,11 @@
   "by": "por",
   "categories": "Categorias",
   "backToBlog": "Voltar para o Blog"
+  },
+    "testimonial": {
+    "title": "Depoimento",
+    "subtitle": "Ouça o relato de Tatiana Barros",
+    "lang": "pt"
   }
   
 }

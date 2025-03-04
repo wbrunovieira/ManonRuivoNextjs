@@ -8,6 +8,7 @@ import Hero from '@/components/Hero';
 import IndividualSection from '@/components/IndividualSection';
 
 import AccessBarsStudy from '@/components/Study';
+import TestimonialSection from '@/components/TestimonialSection';
 
 export default function Index() {
   return (
@@ -18,6 +19,7 @@ export default function Index() {
       <IndividualSection />
       <CorporateSection />
       <CourseSection />
+      <TestimonialSection />
     </div>
   );
 }

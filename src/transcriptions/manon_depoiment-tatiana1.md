@@ -1,0 +1,4 @@
+# Course Transcription: manon_depoiment-tatiana1.mp4
+**Transcription Date:** 2025-03-04 08:02:45
+
+ Olá, meu nome é Tatiana Barros, eu gostaria de compartilhar um pouquinho do que as sessões de barra de áxas tem feito em minha vida. Eu tive quatro ou cinco sessões de barras com uma não e a palavra chave do que acontece das barras de áxas, na minha vida, é trazer consciência. Então coisas que você fica se debatendo a vida inteira e não sabe porque, com chega assim como um presente divino, te abre a consciência, te trazendo realmente respostas e outras vezes coisas que você mentia com ciência, que era um problema, então te mostra o problema e depois te traz a consciência. Eu comecei a perder vários clientes e isso me deixava muito preocupada porque eram todos com mesmo problema. Então, não era com, em competência minha, era porque alguém tinha pedido trabalho, era porque alguém, sei lá, estava devendo muito conta hospitalar, era tudo com mesmo problema.
