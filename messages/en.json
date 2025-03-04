@@ -87,10 +87,18 @@
   "categories": "Categories",
   "backToBlog": "Back to Blog"
   },
-   "testimonial": {
+  "testimonial": {
     "title": "Testimonial",
-    "subtitle": "Listen to the story of Tatiana Barros",
-    "lang": "en"
+    "subtitleTatiana": "Listen to Tatiana Barros' story",
+    "lang": "en",
+    "writtenTextTatiana": "Receiving Access Bars is like hitting the 'reset' button on the mind. It brings a sense of relief, clarity, and lightness that naturally sets in. Over the sessions, I noticed my worries diminished, my mind became calmer, and I started seeing new possibilities for my life. It's as if limiting thoughts lose their strength, making room for greater ease, joy, and lightness in everyday life. I recommend it to anyone who wants to feel freer and expand their consciousness!",
+
+    "subtitleRenato": "Listen to Renato Rivelles' experience",
+    "writtenTextRenato": "Good afternoon, my name is Renato Rivelles, and I'm here to share with you and write about my first experience with Access Bars, which was with Manon Ruivo. I arranged the session, went to the agreed location without any prior knowledge and with zero expectations. I underwent the procedure, which lasted about an hour, and Manon instructed me to observe any changes in my thoughts or behavior, and so it happened. I left feeling relaxed, with a very pleasant and intense relaxation that same night, and something very interesting also happened. I began recalling certain people, and each time I remembered someone, words came to mind that I should have said to them—exactly what I should have said. This gave me enormous satisfaction. There was a moment almost like a dream, and on another day something very interesting occurred. I was in front of the television, watching a show, and while having a caipirinha, I started stretching along with the phrases on TV and realized that my expressiveness was much greater than usual. I was very animated, even stuttering at one point, saying, 'this can't be possible, this person!' And then, the next day, I woke up with a strong desire to talk to people I hadn't spoken to in a long time. I didn't stop talking with my daily contacts, but I reached out to those I hadn't spoken to in years. Interestingly, the responses were very positive, as if I had spoken with them just the day before. It was wonderful. I called about four people and felt an amazing sensation. After that, I rushed to Manon to share my experiences and scheduled a second Access Bars session. I haven't researched this technique yet, but I am living proof that it truly generates all these positive sensations, and I highly recommend it. If you're interested, it's well worth it. Goodbye, and good luck.",
+    "writtenAuthorRenato": "Renato Rivelles",
+     "problems": "problems"
+    
+
   }
   
 }
