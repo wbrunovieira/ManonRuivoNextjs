@@ -92,6 +92,42 @@ export default function TestimonialSection() {
 
   return (
     <section className="py-16 px-6 bg-gradient-to-r from-gray-50 to-gray-200">
+      <div className="w-full overflow-hidden leading-[0] rotate-180 my-4">
+        <svg
+          className="relative block w-full h-[80px]"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none"
+          viewBox="0 0 1600 80"
+        >
+          <defs>
+            <linearGradient
+              id="waveGradientTopNew"
+              x1="0"
+              y1="0"
+              x2="1"
+              y2="0"
+            >
+              <stop offset="0%" stopColor="#E3D7F1" />
+              <stop offset="100%" stopColor="#8E7BB7" />
+            </linearGradient>
+          </defs>
+          <path
+            fill="url(#waveGradientTopNew)"
+            d="
+        M0,40 
+        C200,70 400,10 600,40 
+        C800,70 1000,10 1200,40 
+        C1400,70 1600,10 1600,40 
+        L1600,80 
+        L0,80 
+        Z
+      "
+          />
+          {/* Elementos circulares decorativos */}
+          <circle cx="300" cy="30" r="5" fill="#D8C8E6" />
+          <circle cx="1300" cy="50" r="8" fill="#7A6AA5" />
+        </svg>
+      </div>
       <div className="flex items-center justify-center mb-10">
         <FaRegSmile className="text-4xl text-lilac-dark mr-3" />
         <h2 className="text-3xl md:text-4xl font-extrabold text-lilac-dark">

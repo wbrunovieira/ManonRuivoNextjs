@@ -31,7 +31,7 @@ export default function BlogContent({
   posts,
 }: BlogContentProps) {
   const localeRaw = useLocale();
-  // Normalize se necessário: se o hook retornar 'pt-BR', converta para 'pt'
+
   const locale: SupportedLocale = (
     localeRaw === 'pt-BR' ? 'pt' : localeRaw
   ) as SupportedLocale;

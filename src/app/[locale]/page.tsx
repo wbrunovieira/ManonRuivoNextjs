@@ -1,5 +1,6 @@
 // src/app/[locale]/page.tsx
 
+import About from '@/components/About';
 import AccessBar from '@/components/AccessBar';
 import CorporateSection from '@/components/CorporateSection';
 import CourseSection from '@/components/CourseSection';
@@ -20,6 +21,7 @@ export default function Index() {
       <CorporateSection />
       <CourseSection />
       <TestimonialSection />
+      <About />
     </div>
   );
 }
