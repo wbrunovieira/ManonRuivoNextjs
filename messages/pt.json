@@ -124,6 +124,10 @@
     "whatsapp": "Whatsapp",
     "address": "Endereço com agendamento",
      "accessProfile": "Perfil Público Access Consciousness"
+  },
+  "footer": {
+    "allrights":"© 2025 Todos os direitos reservados.",
+    "dev":"Desenvolvido por "
   }
   
 }

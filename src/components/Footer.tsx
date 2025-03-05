@@ -1,11 +1,14 @@
-import React from 'react';
+'use client';
+
 import {
   FaFacebookF,
   FaWhatsapp,
   FaInstagram,
 } from 'react-icons/fa';
+import { useTranslations } from 'next-intl';
 
 const Footer: React.FC = () => {
+  const t = useTranslations('footer');
   return (
     <footer className="bg-backgroundWhite text-foregroundBlack relative py-10">
       <div className="container mx-auto px-4">
@@ -54,11 +57,9 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="mt-4 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-sm">{t('allrights')}</p>
           <p className="text-sm">
-            © 2025 Todos os direitos reservados.
-          </p>
-          <p className="text-sm">
-            Desenvolvido por{' '}
+            {t('dev')}
             <a
               href="#"
               className="text-lilac hover:text-lilac-dark"

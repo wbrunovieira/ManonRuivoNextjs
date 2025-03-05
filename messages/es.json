@@ -121,6 +121,10 @@
     "whatsapp": "Whatsapp",
     "address": "Dirección para agendar citas",
     "accessProfile": "Perfil Público de Access Consciousness"
+  },
+    "footer": {
+    "allrights": "© 2025 Todos los derechos reservados.",
+    "dev": "Desarrollado por "
   }
 
 }

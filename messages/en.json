@@ -123,5 +123,9 @@
     "whatsapp": "Whatsapp",
    "address": "Appointment Address",
      "accessProfile": "Access Consciousness Public Profile"
+  },
+  "footer": {
+    "allrights": "© 2025 All rights reserved.",
+    "dev": "Developed by "
   }
 }
