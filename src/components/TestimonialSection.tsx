@@ -149,7 +149,7 @@ export default function TestimonialSection() {
           <div className="flex flex-col  md:flex-row items-center gap-6">
             <video
               ref={videoRefTatiana}
-              src="/videos/ManonDepoimentTatiana.mp4"
+              src="/videos/ManonDepoimentTatiana_low.mp4"
               controls
               playsInline
               onTimeUpdate={handleTimeUpdateTatiana}
@@ -208,7 +208,7 @@ export default function TestimonialSection() {
           <div className="flex flex-col md:flex-row items-center gap-6">
             <video
               ref={el => setVideoRefRenato(el)}
-              src="/videos/ManonDepoimentRenato.mp4"
+              src="/videos/ManonDepoimentRenato_low.mp4"
               controls
               playsInline
               onTimeUpdate={handleTimeUpdateRenato}
@@ -261,7 +261,7 @@ export default function TestimonialSection() {
           <div className="flex flex-col md:flex-row items-center gap-6">
             <video
               ref={videoRefMaria}
-              src="/videos/zero_problems.mp4"
+              src="/videos/zero_problems_low.mp4"
               muted
               autoPlay
               playsInline
