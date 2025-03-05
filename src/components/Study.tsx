@@ -6,7 +6,10 @@ const AccessBarsStudy: React.FC = () => {
   const t = useTranslations('study');
 
   return (
-    <section className="relative py-12 bg-gray-50 mt-16 ">
+    <section
+      className="relative py-12 bg-gray-50 mt-16"
+      id="neuroscience"
+    >
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] rotate-180 mt-16 mb-16">
         <svg
           className="relative block w-[calc(100%+1.3px)] h-[50px]"

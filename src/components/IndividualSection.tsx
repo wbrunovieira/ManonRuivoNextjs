@@ -110,6 +110,7 @@ export default function IndividualSection() {
     <section
       ref={sectionRef}
       className="relative bg-gradient-to-r from-[#7A6AA5] to-[#9B8ACA] text-white py-12 px-6 overflow-hidden mt-16"
+      id="sessions"
     >
       {/* Onda decorativa superior */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] rotate-180 mt-16">

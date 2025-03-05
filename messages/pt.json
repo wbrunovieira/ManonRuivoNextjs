@@ -1,9 +1,14 @@
 {
   "Nav": {
     "home": "Início",
+    "blog": "Blog",
+    "neuroscience": "Neurociência",
+    "sessions": "Sessões",
+    "training": "Formação",
+    "testimonial": "Depoimentos",
     "about": "Sobre",
-    "contact": "Contato",
-    "blog": "Blog"
+    "contact": "Contato"
+    
 
   },
    "hero": {

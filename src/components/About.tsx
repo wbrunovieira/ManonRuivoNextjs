@@ -63,6 +63,7 @@ export default function About() {
     <section
       ref={containerRef}
       className="py-16 px-6 bg-gradient-to-br from-white to-gray-100"
+      id="about"
     >
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] rotate-180 my-4">
         <svg

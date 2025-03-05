@@ -78,7 +78,6 @@ export default function Nav() {
             localizedSlug
           );
           segments[1] = lang;
-
           segments[segments.indexOf('blog') + 1] =
             localizedSlug;
           const newPath = segments.join('/');
@@ -134,6 +133,30 @@ export default function Nav() {
       label: t('home', { defaultMessage: 'Home' }),
     },
     {
+      path: 'blog',
+      label: t('blog', { defaultMessage: 'blog' }),
+    },
+    {
+      path: 'neuroscience',
+      label: t('neuroscience', {
+        defaultMessage: 'neuroscience',
+      }),
+    },
+    {
+      path: 'sessions',
+      label: t('sessions', { defaultMessage: 'sessions' }),
+    },
+    {
+      path: 'training',
+      label: t('training', { defaultMessage: 'training' }),
+    },
+    {
+      path: 'testimonial',
+      label: t('testimonial', {
+        defaultMessage: 'testimonial',
+      }),
+    },
+    {
       path: 'about',
       label: t('about', { defaultMessage: 'About' }),
     },
@@ -141,11 +164,32 @@ export default function Nav() {
       path: 'contact',
       label: t('contact', { defaultMessage: 'Contact' }),
     },
-    {
-      path: 'blog',
-      label: t('blog', { defaultMessage: 'blog' }),
-    },
   ];
+
+  const isHome =
+    pathname === `/${locale}` || pathname === `/${locale}/`;
+
+  const handleSectionClick = (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+    section: string
+  ) => {
+    if (isHome) {
+      e.preventDefault();
+
+      window.history.pushState(
+        null,
+        '',
+        `/${locale}/#${section}`
+      );
+      const element = document.getElementById(section);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      router.push(`/${locale}/#${section}`);
+    }
+    setIsMobileMenuOpen(false);
+  };
 
   useGSAP(() => {
     gsap.from(navRef.current, {
@@ -204,23 +248,58 @@ export default function Nav() {
         </div>
         <div className="hidden md:block z-50">
           <ul className="flex gap-6 list-none p-0">
-            {menuItems.map((item, index) => (
-              <li
-                key={item.path}
-                ref={el => {
-                  if (el) menuItemsRef.current[index] = el;
-                }}
-              >
-                <Link
-                  href={`/${locale}/${item.path}`}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  <span className="text-lg font-medium hover:text-lilac-dark transition-colors duration-300">
-                    {item.label}
-                  </span>
-                </Link>
-              </li>
-            ))}
+            {menuItems.map((item, index) => {
+              if (
+                item.path === '' ||
+                item.path === 'blog'
+              ) {
+                return (
+                  <li
+                    key={item.path}
+                    ref={el => {
+                      if (el)
+                        menuItemsRef.current[index] = el;
+                    }}
+                  >
+                    <Link
+                      href={`/${locale}/${item.path}`}
+                      onClick={() =>
+                        setIsMobileMenuOpen(false)
+                      }
+                    >
+                      <span className="text-sm font-medium hover:text-lilac-dark transition-colors duration-300">
+                        {item.label}
+                      </span>
+                    </Link>
+                  </li>
+                );
+              } else {
+                return (
+                  <li
+                    key={item.path}
+                    ref={el => {
+                      if (el)
+                        menuItemsRef.current[index] = el;
+                    }}
+                  >
+                    <Link
+                      href={
+                        isHome
+                          ? `#${item.path}`
+                          : `/${locale}/#${item.path}`
+                      }
+                      onClick={e =>
+                        handleSectionClick(e, item.path)
+                      }
+                    >
+                      <span className="text-sm font-medium hover:text-lilac-dark transition-colors duration-300">
+                        {item.label}
+                      </span>
+                    </Link>
+                  </li>
+                );
+              }
+            })}
           </ul>
         </div>
         <div className="flex md:mr-4">
@@ -278,18 +357,46 @@ export default function Nav() {
             ref={mobileMenuRef}
             className="flex flex-col gap-4 list-none p-0 text-right bg-lilac-dark z-50"
           >
-            {menuItems.map(item => (
-              <li key={item.path}>
-                <Link
-                  href={`/${locale}/${item.path}`}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  <span className="text-lg font-medium text-white hover:text-lilac hover:scale-105 transitions duration-300">
-                    {item.label}
-                  </span>
-                </Link>
-              </li>
-            ))}
+            {menuItems.map(item => {
+              if (
+                item.path === '' ||
+                item.path === 'blog'
+              ) {
+                return (
+                  <li key={item.path}>
+                    <Link
+                      href={`/${locale}/${item.path}`}
+                      onClick={() =>
+                        setIsMobileMenuOpen(false)
+                      }
+                    >
+                      <span className="text-lg font-medium text-white hover:text-lilac hover:scale-105 transitions duration-300">
+                        {item.label}
+                      </span>
+                    </Link>
+                  </li>
+                );
+              } else {
+                return (
+                  <li key={item.path}>
+                    <Link
+                      href={
+                        isHome
+                          ? `#${item.path}`
+                          : `/${locale}/#${item.path}`
+                      }
+                      onClick={e =>
+                        handleSectionClick(e, item.path)
+                      }
+                    >
+                      <span className="text-lg font-medium text-white hover:text-lilac hover:scale-105 transitions duration-300">
+                        {item.label}
+                      </span>
+                    </Link>
+                  </li>
+                );
+              }
+            })}
           </ul>
         </div>
       )}

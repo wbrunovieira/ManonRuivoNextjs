@@ -107,6 +107,7 @@ export default function CourseSection() {
     <section
       ref={sectionRef}
       className="relative py-16 overflow-hidden mt-16"
+      id="training"
     >
       <div className="absolute inset-0 w-1/3 md:w-1/2 bg-gradient-to-b from-lilac-dark to-lilac-light -skew-x-12 -left-1/3 z-0" />
 

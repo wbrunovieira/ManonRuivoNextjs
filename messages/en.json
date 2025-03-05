@@ -1,9 +1,13 @@
 {
   "Nav": {
     "home": "Home",
+    "blog": "Blog",
+    "neuroscience": "Neuroscience",
+    "sessions": "Sessions",
+    "training": "Training",
+    "testimonial": "Testimonials",
     "about": "About",
-    "contact": "Contact",
-    "blog": "Blog"
+    "contact": "Contact"
   },
   "hero": {
     "title1": "Free yourself from stress and ",

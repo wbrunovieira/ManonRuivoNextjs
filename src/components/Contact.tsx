@@ -40,7 +40,6 @@ export default function CTASection() {
     }
   }, []);
 
-  // Componente Divider para separar os itens
   const Divider = () => (
     <div className="w-full max-w-xs my-4 border-t border-dashed border-gray-300" />
   );
@@ -49,6 +48,7 @@ export default function CTASection() {
     <section
       ref={containerRef}
       className="py-16 px-6 bg-lilac-dark text-white"
+      id="contact"
     >
       <div className="max-w-4xl mx-auto text-center space-y-8">
         <div>
@@ -64,7 +64,6 @@ export default function CTASection() {
         </div>
 
         <div className="flex flex-col justify-center items-center gap-8 mt-8">
-          {/* Telefone */}
           <div className="w-full max-w-xs text-left">
             <div className="flex items-center gap-2">
               <FaPhone className="text-2xl" />
@@ -77,7 +76,6 @@ export default function CTASection() {
             </div>
           </div>
 
-          {/* WhatsApp */}
           <div className="w-full max-w-xs text-left">
             <div className="flex items-center gap-2">
               <FaWhatsapp className="text-2xl" />
@@ -92,7 +90,6 @@ export default function CTASection() {
             </div>
           </div>
 
-          {/* Endereço */}
           <div className="w-full max-w-xs text-left">
             <div className="flex items-center gap-2">
               <FaMapMarkerAlt className="text-2xl" />
@@ -138,7 +135,6 @@ export default function CTASection() {
           </a>
         </div>
 
-        {/* Link para o Perfil Público Access Consciousness */}
         <div className="mt-8">
           <a
             href="https://www.accessconsciousness.com/en/public-profiles/manon-ruivo/"

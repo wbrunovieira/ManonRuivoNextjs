@@ -91,7 +91,10 @@ export default function TestimonialSection() {
   );
 
   return (
-    <section className="py-16 px-6 bg-gradient-to-r from-gray-50 to-gray-200">
+    <section
+      className="py-16 px-6 bg-gradient-to-r from-gray-50 to-gray-200"
+      id="testimonial"
+    >
       <div className="w-full overflow-hidden leading-[0] rotate-180 my-4">
         <svg
           className="relative block w-full h-[80px]"

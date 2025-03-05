@@ -1,9 +1,13 @@
 {
   "Nav": {
     "home": "Inicio",
-    "about": "Acerca de",
-    "contact": "Contacto",
-      "blog": "Blog"
+    "blog": "Blog",
+    "neuroscience": "Neurociencia",
+    "sessions": "Sesiones",
+    "training": "Formación",
+    "testimonial": "Testimonios",
+    "about": "Sobre",
+    "contact": "Contacto"
   },
    "hero": {
     "title1": "Libera el estrés y ",
