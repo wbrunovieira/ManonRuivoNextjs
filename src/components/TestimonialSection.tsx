@@ -123,7 +123,7 @@ export default function TestimonialSection() {
         Z
       "
           />
-          {/* Elementos circulares decorativos */}
+
           <circle cx="300" cy="30" r="5" fill="#D8C8E6" />
           <circle cx="1300" cy="50" r="8" fill="#7A6AA5" />
         </svg>
@@ -143,27 +143,28 @@ export default function TestimonialSection() {
               {t('subtitleTatiana')}
             </p>
           </div>
-          <div className="flex flex-col md:flex-row items-center gap-6">
+          <div className="flex flex-col  md:flex-row items-center gap-6">
             <video
               ref={videoRefTatiana}
               src="/videos/ManonDepoimentTatiana.mp4"
               controls
+              playsInline
               onTimeUpdate={handleTimeUpdateTatiana}
-              className="w-full md:w-1/3 rounded-lg shadow-lg"
+              className="w-1/3 md:w-1/4 rounded-lg shadow-lg"
             />
-            <div className="space-y-3">
+            <div className="space-y-3 mt-8">
               {isMobile ? (
                 activeSegmentTatiana !== null &&
                 activeSegmentTatiana >= 0 ? (
-                  <p className="transition-colors duration-300 text-green-600 font-bold text-lg">
+                  <p className="transition-colors duration-300 text-green-600 text-sm">
                     {
                       segmentsTatiana[activeSegmentTatiana]
                         .text
                     }
                   </p>
                 ) : (
-                  <p className="text-gray-700 italic">
-                    Aguardando reprodução...
+                  <p className="text-green italic ">
+                    {t('showmetranscription')}
                   </p>
                 )
               ) : (
@@ -174,10 +175,10 @@ export default function TestimonialSection() {
                   ) => (
                     <div
                       key={index}
-                      className={`flex items-center transition-colors duration-300 ${
+                      className={`flex md:ml-8 md:w-2/3 items-center transition-colors duration-300 ${
                         activeSegmentTatiana === index
-                          ? 'text-green-600 font-bold'
-                          : 'text-gray-700'
+                          ? 'text-green-600 text-xs'
+                          : 'text-gray-700 text-xs'
                       }`}
                     >
                       {activeSegmentTatiana === index && (
@@ -206,14 +207,15 @@ export default function TestimonialSection() {
               ref={el => setVideoRefRenato(el)}
               src="/videos/ManonDepoimentRenato.mp4"
               controls
+              playsInline
               onTimeUpdate={handleTimeUpdateRenato}
-              className="w-full md:w-1/3 rounded-lg shadow-lg"
+              className="w-1/3 md:w-1/4 rounded-lg shadow-lg"
             />
-            <div className="space-y-3">
+            <div className="space-y-3 mt-8">
               {isMobile ? (
                 activeSegmentRenato !== null &&
                 activeSegmentRenato >= 0 ? (
-                  <p className="transition-colors duration-300 text-green-600 font-bold text-lg">
+                  <p className="transition-colors duration-300 text-green-600 text-sm">
                     {
                       segmentsRenato[activeSegmentRenato]
                         .text
@@ -221,7 +223,7 @@ export default function TestimonialSection() {
                   </p>
                 ) : (
                   <p className="text-gray-700 italic">
-                    Aguardando reprodução...
+                    {t('showmetranscription')}
                   </p>
                 )
               ) : (
@@ -232,10 +234,10 @@ export default function TestimonialSection() {
                   ) => (
                     <div
                       key={index}
-                      className={`flex items-center transition-colors duration-300 ${
+                      className={`flex md:ml-8 md:w-2/3 items-center transition-colors duration-300 ${
                         activeSegmentRenato === index
-                          ? 'text-green-600 font-bold'
-                          : 'text-gray-700'
+                          ? 'text-green-600 text-xs'
+                          : 'text-gray-700 text-xs'
                       }`}
                     >
                       {activeSegmentRenato === index && (
