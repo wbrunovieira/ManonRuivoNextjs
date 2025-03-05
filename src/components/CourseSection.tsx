@@ -158,7 +158,9 @@ export default function CourseSection() {
 
             <a
               ref={ctaRef}
-              href="#inscricao-formacao"
+              href="https://api.whatsapp.com/send?phone=13852771582"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-full transition-transform text-lg shadow-lg"
             >
               {t('button')}

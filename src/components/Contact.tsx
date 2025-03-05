@@ -112,7 +112,7 @@ export default function CTASection() {
 
         <div className="flex justify-center items-center gap-8 mt-8">
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/manonruivo/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-gray-300"
@@ -120,7 +120,7 @@ export default function CTASection() {
             <FaInstagram className="text-3xl" />
           </a>
           <a
-            href="https://facebook.com"
+            href="https://www.facebook.com/profile.php?id=100059025270728"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-gray-300"

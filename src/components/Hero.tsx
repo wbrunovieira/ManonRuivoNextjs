@@ -140,12 +140,18 @@ export default function Hero() {
           {t('description')}
         </p>
 
-        <button
-          ref={ctaRef}
-          className="z-10 mt-8 px-6 py-3 bg-green hover:bg-green/30 text-white font-semibold rounded transition-colors duration-300"
+        <a
+          href="https://api.whatsapp.com/send?phone=13852771582"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          {t('cta')}
-        </button>
+          <button
+            ref={ctaRef}
+            className="z-10 mt-8 px-6 py-3 bg-green hover:bg-green/30 text-white font-semibold rounded transition-colors duration-300"
+          >
+            {t('cta')}
+          </button>
+        </a>
       </div>
 
       <div

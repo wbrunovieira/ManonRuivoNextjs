@@ -23,7 +23,7 @@ const Footer: React.FC = () => {
 
           <div className="flex space-x-4 mt-6 md:mt-0">
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/profile.php?id=100059025270728"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-lilac-light hover:bg-lilac-dark text-foregroundBlack p-3 rounded-full transition-colors"
@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
               <FaFacebookF size={20} />
             </a>
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/manonruivo/"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-lilac-light hover:bg-lilac-dark text-foregroundBlack p-3 rounded-full transition-colors"
@@ -39,7 +39,7 @@ const Footer: React.FC = () => {
               <FaInstagram size={20} />
             </a>
             <a
-              href="https://twitter.com"
+              href="https://api.whatsapp.com/send?phone=13852771582"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-lilac-light hover:bg-lilac-dark text-foregroundBlack p-3 rounded-full transition-colors"

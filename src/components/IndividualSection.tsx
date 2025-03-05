@@ -112,7 +112,6 @@ export default function IndividualSection() {
       className="relative bg-gradient-to-r from-[#7A6AA5] to-[#9B8ACA] text-white py-12 px-6 overflow-hidden mt-16"
       id="sessions"
     >
-      {/* Onda decorativa superior */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] rotate-180 mt-16">
         <svg
           className="relative block w-[calc(100%+1.3px)] h-[50px]"
@@ -140,7 +139,6 @@ export default function IndividualSection() {
         </svg>
       </div>
 
-      {/* Conteúdo principal */}
       <div className="relative max-w-4xl mx-auto flex flex-col items-center z-10 mt-32">
         <h2
           ref={titleRef}
@@ -216,7 +214,9 @@ export default function IndividualSection() {
 
           <div className="text-center mt-8">
             <a
-              href="#agendamento" // Ajuste o link para o seu sistema de agendamento
+              href="https://api.whatsapp.com/send?phone=13852771582"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-full transition-colors text-lg shadow-lg"
             >
               {t('button')}
@@ -225,7 +225,6 @@ export default function IndividualSection() {
         </div>
       </div>
 
-      {/* Onda decorativa inferior */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] mb-16">
         <svg
           className="relative block w-[calc(100%+1.3px)] h-[50px]"

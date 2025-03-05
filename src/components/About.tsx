@@ -129,9 +129,15 @@ export default function About() {
           </div>
 
           <div className="mt-8 text-center">
-            <button className="px-8 py-3 bg-green text-white rounded-full hover:bg-lilac transition-colors">
-              {t('scheduleButton')}
-            </button>
+            <a
+              href="https://api.whatsapp.com/send?phone=13852771582"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button className="z-10 mt-8 px-6 py-3 bg-green hover:bg-green/30 text-white font-semibold rounded transition-colors duration-300">
+                {t('scheduleButton')}
+              </button>
+            </a>
           </div>
         </div>
       </div>
