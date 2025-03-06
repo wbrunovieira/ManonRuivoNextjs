@@ -66,7 +66,7 @@ const AccessBarsStudy: React.FC = () => {
             className="w-full h-auto rounded shadow"
           >
             <source
-              src="/videos/manon_ruivosecao.mp4_optmised_low.mp4"
+              src="/videos/manon_ruivosecao.mp4_optmised_lowCodecBit.mp4"
               type="video/mp4"
             />
             Seu navegador não suporta o elemento de vídeo.
