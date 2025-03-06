@@ -141,34 +141,6 @@ export default function About() {
           </div>
         </div>
       </div>
-      <div className=" w-full overflow-hidden leading-[0] rotate-180 my-16">
-        <svg
-          className="relative block w-[calc(100%+1.3px)] h-[50px]"
-          xmlns="http://www.w3.org/2000/svg"
-          preserveAspectRatio="none"
-          viewBox="0 0 1600 57"
-        >
-          <defs>
-            <linearGradient
-              id="waveGradientTop"
-              x1="0"
-              y1="0"
-              x2="1"
-              y2="0"
-            >
-              <stop offset="0%" stopColor="#D8C8E6" />
-              <stop offset="100%" stopColor="#7A6AA5" />
-            </linearGradient>
-          </defs>
-          <path
-            fill="url(#waveGradientTop)"
-            d="M-48,57c72.4-0.3,183.7-6,309.1-29.3
-              c252.2-47.7,447.2-2.1,658.2,16.4
-              c225.6,19.5,471-38,641.9-72.2
-              c35.2-7.4,65.9-13.2,89.8-16.6v61H-48z"
-          />
-        </svg>
-      </div>
     </section>
   );
 }

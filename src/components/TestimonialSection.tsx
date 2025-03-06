@@ -92,7 +92,7 @@ export default function TestimonialSection() {
 
   return (
     <section
-      className="py-16 px-6 bg-gradient-to-r from-gray-50 to-gray-200"
+      className="py-16  bg-gradient-to-r from-gray-50 to-gray-200"
       id="testimonial"
     >
       <div className="w-full overflow-hidden leading-[0] rotate-180 my-4">
@@ -131,6 +131,7 @@ export default function TestimonialSection() {
           <circle cx="1300" cy="50" r="8" fill="#7A6AA5" />
         </svg>
       </div>
+
       <div className="flex items-center justify-center mb-10">
         <FaRegSmile className="text-4xl text-lilac-dark mr-3" />
         <h2 className="text-3xl md:text-4xl font-extrabold text-lilac-dark">

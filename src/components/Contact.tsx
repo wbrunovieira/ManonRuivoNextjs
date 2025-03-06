@@ -1,9 +1,7 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
 import { useTranslations } from 'next-intl';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
 import {
   FaPhone,
   FaWhatsapp,
@@ -14,31 +12,8 @@ import {
   FaExternalLinkAlt,
 } from 'react-icons/fa';
 
-gsap.registerPlugin(ScrollTrigger);
-
 export default function CTASection() {
   const t = useTranslations('cta');
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (containerRef.current) {
-      gsap.fromTo(
-        containerRef.current,
-        { opacity: 0, y: 50 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: 'top 80%',
-            toggleActions: 'play none none reverse',
-          },
-        }
-      );
-    }
-  }, []);
 
   const Divider = () => (
     <div className="w-full max-w-xs my-4 border-t border-dashed border-gray-300" />
@@ -46,7 +21,6 @@ export default function CTASection() {
 
   return (
     <section
-      ref={containerRef}
       className="py-16 px-6 bg-lilac-dark text-white"
       id="contact"
     >
