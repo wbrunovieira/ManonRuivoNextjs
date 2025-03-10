@@ -157,10 +157,14 @@ export default function TestimonialSection() {
               className="w-1/3 md:w-1/4 rounded-lg shadow-lg"
             />
             <div className="space-y-3 mt-8">
+              <p className="text-center md:text-left md:ml-8 text-lilac-dark">
+                {' '}
+                {t('transcriptiontitle')}
+              </p>
               {isMobile ? (
                 activeSegmentTatiana !== null &&
                 activeSegmentTatiana >= 0 ? (
-                  <p className="transition-colors duration-300 text-green-600 text-sm">
+                  <p className="transition-colors duration-300 text-green-600 text-sm px-4 -mt-4 md:mt-8">
                     {
                       segmentsTatiana[activeSegmentTatiana]
                         .text
@@ -179,9 +183,9 @@ export default function TestimonialSection() {
                   ) => (
                     <div
                       key={index}
-                      className={`flex md:ml-8 md:w-2/3 items-center transition-colors duration-300 ${
+                      className={`flex md:ml-8 md:w-2/3 items-center transition-colors duration-300  ${
                         activeSegmentTatiana === index
-                          ? 'text-green-600 text-xs'
+                          ? 'text-green-600 text-xs px-4'
                           : 'text-gray-700 text-xs'
                       }`}
                     >
@@ -216,10 +220,14 @@ export default function TestimonialSection() {
               className="w-1/3 md:w-1/4 rounded-lg shadow-lg"
             />
             <div className="space-y-3 mt-8">
+              <p className="text-center md:text-left md:ml-8 text-lilac-dark">
+                {' '}
+                {t('transcriptiontitle')}
+              </p>
               {isMobile ? (
                 activeSegmentRenato !== null &&
                 activeSegmentRenato >= 0 ? (
-                  <p className="transition-colors duration-300 text-green-600 text-sm">
+                  <p className="transition-colors duration-300 text-green-600 text-sm px-4 -mt-4 md:mt-8">
                     {
                       segmentsRenato[activeSegmentRenato]
                         .text
