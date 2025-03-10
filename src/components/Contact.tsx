@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl';
 import {
   FaPhone,
   FaWhatsapp,
+  FaCommentAlt,
   FaMapMarkerAlt,
   FaInstagram,
   FaFacebookF,
@@ -60,6 +61,18 @@ export default function CTASection() {
                 className="hover:underline"
               >
                 <p>{t('whatsapp')}: +1 (385) 277-1582</p>
+              </a>
+            </div>
+          </div>
+
+          <div className="w-full max-w-xs text-left">
+            <div className="flex items-center gap-2">
+              <FaCommentAlt className="text-2xl" />
+              <a
+                href="sms:+13852771582"
+                className="hover:underline"
+              >
+                <p>SMS: +1 (385) 277-1582</p>
               </a>
             </div>
           </div>
