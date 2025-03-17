@@ -1,3 +1,5 @@
+//src/i18n/request.ts
+
 import { getRequestConfig } from 'next-intl/server';
 import { routing } from './routing';
 import { headers } from 'next/headers';
@@ -28,7 +30,6 @@ export default getRequestConfig(
   async ({ requestLocale }) => {
     let locale = await requestLocale;
 
-    // Se o locale não foi definido, tenta extrair da URL usando o header 'referer'
     if (!locale) {
       const referer = (await headers()).get('referer');
       if (referer) {

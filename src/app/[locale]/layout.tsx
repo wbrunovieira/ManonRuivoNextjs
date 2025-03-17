@@ -1,3 +1,4 @@
+//src/[locale]/layout.tsx
 import { getTranslations } from 'next-intl/server';
 import {
   AbstractIntlMessages,
