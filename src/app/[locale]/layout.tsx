@@ -46,7 +46,7 @@ export async function generateMetadata({
       type: 'website',
       images: [
         {
-          url: `${baseUrl}/og-image.jpg`,
+          url: `${baseUrl}/images/image-3.jpg`,
           width: 1200,
           height: 630,
           alt: t('title'),
@@ -59,7 +59,7 @@ export async function generateMetadata({
       description: t('description'),
       site: '@manonruivo',
       creator: '@manonruivo',
-      images: [`${baseUrl}/og-image.jpg`],
+      images: [`${baseUrl}/images/image-3.jpg`],
     },
     robots: {
       index: true,
