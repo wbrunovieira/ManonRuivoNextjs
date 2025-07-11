@@ -18,7 +18,7 @@ module.exports = withBundleAnalyzer(
             {
               key: 'Content-Security-Policy',
               value:
-                "default-src 'self'; connect-src 'self' https://e2glo6ep.api.sanity.io https://e2glo6ep.apicdn.sanity.io; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline';",
+                "default-src 'self'; connect-src 'self' https://e2glo6ep.api.sanity.io https://e2glo6ep.apicdn.sanity.io wss://e2glo6ep.api.sanity.io; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline';",
             },
             {
               key: 'X-Frame-Options',
