@@ -4,6 +4,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')(
   }
 );
 const withNextIntl = require('next-intl/plugin')();
+// Forcing a rebuild to clear potential Vercel cache issues
 
 module.exports = withBundleAnalyzer(
   withNextIntl({
